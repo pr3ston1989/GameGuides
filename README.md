@@ -6,9 +6,17 @@ Aplikacja Windows do zapisywania poradników do gier w estetycznym PDF. Wklej li
 
 ## Pobieranie
 
-Pobierz instalator **GameGuides-1.1.0-Setup.exe** lub wersję **Portable.exe** z [najnowszego wydania](https://github.com/pr3ston1989/GameGuides/releases/latest). Windows 10/11 x64; Node.js nie jest wymagany. Instalator pozwala wybrać katalog i tworzy skróty. Wydanie nie ma komercyjnego podpisu cyfrowego.
+Pobierz instalator **GameGuides-1.2.0-Setup.exe** lub wersję **Portable.exe** z [najnowszego wydania](https://github.com/pr3ston1989/GameGuides/releases/latest). Windows 10/11 x64; Node.js nie jest wymagany. Instalator pozwala wybrać katalog i tworzy skróty. Wydanie nie ma komercyjnego podpisu cyfrowego.
 
-## Co nowego w 1.1
+## Co nowego w 1.2
+
+- Pełny ilustrowany GreedFall sprawdzony od źródła do PDF: 135 rozdziałów treści, 489 stron, 711 ilustracji i map oraz wszystkie 1063 dłuższe akapity. 28 indeksów pozostaje opcjonalnych.
+- Naprawiona główna mapa poza artykułem, obrazy Game8 i Imgur, leniwe filmy PowerPyx oraz SVG jako ilustracje.
+- Lepszy skład: kompaktowe krótkie artykuły, czytelniejsze szerokie tabele, podpisy, ostrzeżenia i podział akapitów.
+- Jawna liczba obrazów przed eksportem i po nim; wydanie bez zdjęć jest wyraźnie opisane jako tekstowe. Stare zapisane sesje są odświeżane po zmianie ekstraktora.
+- 32 próbki z 16 serwisów ponownie wyeksportowane z wszystkimi ilustracjami: 361 stron, 1096 osadzeń obrazów, zero błędów obrazów. [Zakres i wyniki testów 1.2](docs/testing/POLISH-1.2.md).
+
+## Funkcje
 
 - 20 adapterów i jawne wyniki weryfikacji: 16 serwisów sprawdzonych na dwóch wylosowanych stronach; 4 nadal ograniczone.
 - Automatyczne przełączenie na normalną przeglądarkę przy odmowie HTTP lub stronie wymagającej JavaScript.
@@ -36,7 +44,7 @@ W przeglądarce: **PlayStationTrophies, Neoseeker, StrategyWiki**. Serwisy mogą
 
 Adaptery, których nie udało się zweryfikować z powodu odmów/błędów: **GameFAQs, PSNProfiles, TrueAchievements, RPG Site**. Interfejs oznacza je jako ograniczone.
 
-Każdy serwis sprawdzono na ograniczonej próbie, a nie na wszystkich poradnikach. Dokładne wylosowane adresy, gry, wyniki i ograniczenia są w [raporcie testów](docs/testing/REPORT.md). Testy obejmują również pełny poradnik GreedFall: **163 rozdziały, 425 stron PDF**, bez ilustracji.
+Każdy serwis sprawdzono na ograniczonej próbie, a nie na wszystkich poradnikach. Dokładne wylosowane adresy, gry, wyniki i ograniczenia są w [raporcie 1.2](docs/testing/POLISH-1.2.md) i [danych pomiarowych](docs/testing/polish-1.2.json). [Raport 1.1](docs/testing/REPORT.md) zawiera wcześniejsze testy, w tym historyczny eksport GreedFall bez ilustracji.
 
 ## Zakres i ograniczenia
 
@@ -44,7 +52,7 @@ Wielostronicowe pobieranie: IGN, Gamepressure, GRYOnline, Neoseeker, StrategyWik
 
 „Cały poradnik” oznacza rozdziały znalezione przez dostępne linki w ustalonym zakresie gry. Strony niepodlinkowane, płatne, ukryte w niedostępnych menu lub blokowane mogą pozostać niewykryte. Pole `complete` w raporcie opisuje pobraną kolejkę i uwagi, a nie gwarantuje kompletności całego serwisu. Krótka strona startowa lub wpis społecznościowy może zawierać mało treści; program ostrzega o tym zamiast dopisywać tekst.
 
-Wideo jest zastępowane linkiem; mapy interaktywne wymagają strony źródłowej. Obrazy: maksymalnie 5 MB na plik i 160 MB na eksport. Game8 podczas testu blokowało serwer ilustracji; tekst działał, a braki obrazów były raportowane. Obrazy wymagające cookies mogą być niedostępne, ponieważ pobiera je osobny klient HTTP.
+Wideo jest zastępowane linkiem; mapy interaktywne wymagają strony źródłowej. Statyczne mapy są osadzane w PDF. Obrazy: maksymalnie 5 MB na plik i 160 MB na eksport. Obrazy wymagające cookies mogą być niedostępne, ponieważ pobiera je osobny klient HTTP. Każdy brak trafia do raportu obok PDF; raport zawiera też liczbę oczekiwanych, osadzonych i nieudanych ilustracji.
 
 ## Dane lokalne
 
@@ -78,7 +86,7 @@ node scripts/check-full-pdf.cjs
 node scripts/test-report.cjs
 ```
 
-Rendering podglądów wymaga Popplera (`pdftoppm`). Zmienne `SAMPLE_SITES`, `BROWSER_SAMPLE_SITES` i `QA_SITES` pozwalają ograniczyć test do nazw serwisów rozdzielonych przecinkami. `SAMPLE_SEED` zmienia deterministyczne losowanie. Przeglądarkowy sampler domyślnie sprawdza StrategyWiki. GitHub Actions wykonuje testy jednostkowe, GUI i startu oraz buduje instalator; tagi `v*` publikują wydania.
+Rendering podglądów wymaga Popplera (`pdftoppm`). Zmienne `SAMPLE_SITES`, `BROWSER_SAMPLE_SITES` i `QA_SITES` pozwalają ograniczyć test do nazw serwisów rozdzielonych przecinkami. `QA_IMAGES=all` włącza obrazy we wszystkich próbkach. `SAMPLE_SEED` zmienia deterministyczne losowanie. Przeglądarkowy sampler domyślnie sprawdza StrategyWiki. Procedura ilustrowanego GreedFall jest w raporcie 1.2. GitHub Actions wykonuje testy jednostkowe, GUI i startu oraz buduje instalator; tagi `v*` publikują wydania.
 
 ## Architektura
 

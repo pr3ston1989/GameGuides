@@ -1,5 +1,5 @@
 const {download} = require('./network.cjs');
-const {extract} = require('./extract.cjs');
+const {extract,EXTRACTOR_VERSION} = require('./extract.cjs');
 const {normalize,adapter,belongs} = require('./sites.cjs');
 const robotsParser = require('robots-parser');
 const cheerio = require('cheerio');
@@ -22,14 +22,19 @@ class Engine {
   }
   cancel(){this.controller.abort();}
   get signal(){return this.controller.signal;}
-  snapshot(){return {version:1,seed:this.seed,mode:this.mode,limit:this.limit,pending:[...this.pending],seen:[...this.seen],pages:[...this.pages],warnings:this.warnings,truncated:this.truncated,browser:!!this.reader};}
+  snapshot(){return {version:2,extractorVersion:EXTRACTOR_VERSION,seed:this.seed,mode:this.mode,limit:this.limit,pending:[...this.pending],seen:[...this.seen],pages:[...this.pages],warnings:this.warnings,truncated:this.truncated,browser:!!this.reader};}
 
   async allowed(url) {
     const origin=new URL(url).origin;
     if(!this.robots.has(origin)) {
       let text='';
       try { text=(await this.fetcher(origin+'/robots.txt',{signal:this.signal,maxBytes:1024*1024})).data.toString(); }
-      catch(e) { if(!/HTTP 404|HTTP 410/.test(e.message)) {const error='Nie można sprawdzić robots.txt: '+e.message;this.robots.set(origin,{error});throw new Error(error);} }
+      catch(e) {
+        const status=Number(e.message.match(/HTTP (\d{3})/)?.[1]);
+        // RFC 9309 §2.3.1.3: an unavailable (4xx) robots file is not a Disallow rule.
+        // A rate limit (429), server failure, or network failure still stops requests.
+        if(!(status>=400&&status<500&&status!==429)){const error='Nie można sprawdzić robots.txt: '+e.message;this.robots.set(origin,{error});throw new Error(error);}
+      }
       this.robots.set(origin,robotsParser(origin+'/robots.txt',text));
     }
     const rules=this.robots.get(origin);
@@ -44,11 +49,15 @@ class Engine {
     this.seed=normalize(value); this.mode=mode; this.limit=limit;
     this.pages.clear(); this.warnings=[]; this.truncated=false;
     this.pending=[this.seed]; this.seen=new Set(this.pending);
-    if(resume && resume.version===1 && resume.seed===this.seed) {
+    if(resume && resume.seed===this.seed && resume.extractorVersion===EXTRACTOR_VERSION) {
       this.pages=new Map(resume.pages);
       this.pending=[...new Set(resume.pending.concat(resume.warnings.filter(w=>w.kind==='page').map(w=>w.url)))].filter(u=>belongs(this.seed,u));
       this.seen=new Set(resume.seen);
       this.warnings=resume.warnings.filter(w=>!['limit','page'].includes(w.kind));
+    }else if(resume&&resume.seed===this.seed){
+      this.progress({phase:'refresh',message:'Zapis pochodzi ze starszej wersji odczytu. Odświeżam źródła, aby odzyskać komplet treści i ilustracji.'});
+      this.pending=mode==='single'?[this.seed]:[...new Set([this.seed,...(resume.pages||[]).map(([key])=>key),...(resume.pending||[])])].filter(u=>belongs(this.seed,u));
+      this.seen=new Set(this.pending);
     }
     let attempted=0;
     try {
@@ -97,12 +106,13 @@ class Engine {
 
   result(){
     const order=new Map([...this.seen].map((url,index)=>[url,index]));
-    const pages=[...this.pages].sort((a,b)=>(order.get(a[0])??Infinity)-(order.get(b[0])??Infinity)).map(([key,p])=>({key,title:p.title,url:p.url,words:p.words}));
+    const pages=[...this.pages].sort((a,b)=>(order.get(a[0])??Infinity)-(order.get(b[0])??Infinity)).map(([key,p])=>({key,title:p.title,url:p.url,words:p.words,kind:p.kind||'article',images:p.images??cheerio.load(p.content)('img').length}));
     return {site:adapter(this.seed).name,pages,warnings:this.warnings,truncated:this.truncated,pending:this.pending.length,browser:!!this.reader};
   }
 
   async chapters(keys,images) {
     const chapters=[],cache=new Map(); let bytes=0;
+    this.media={requested:!!images,expected:0,embedded:0,failed:0,assets:[]};
     // Export warnings belong to this attempt, not previous exports.
     this.warnings=this.warnings.filter(w=>w.kind!=='image');
     for(const [i,key] of keys.entries()) {
@@ -113,21 +123,26 @@ class Engine {
       const $=cheerio.load(page.content);
       for(const [index,el] of $('img').toArray().entries()) {
         const img=$(el),url=img.attr('src');
+        this.media.expected++;
+        const asset={chapter:key,url,alt:img.attr('alt')||'',status:images?'pending':'disabled'};this.media.assets.push(asset);
         if(!images){img.remove();continue;}
         this.progress({phase:'images',message:`Ilustracje: rozdział ${i+1}/${keys.length}, obraz ${index+1}/${$('img').length}`});
         try {
           if(!cache.has(url)) {
-            await this.allowed(url);
-            const r=await this.fetcher(url,{signal:this.signal,maxBytes:5*1024*1024});
+            const options={signal:this.signal,maxBytes:5*1024*1024,referer:page.url};
+            let r=this.fetcher.peek?await this.fetcher.peek(url,options):null;
+            if(!r){await this.allowed(url);r=await this.fetcher(url,options);}
             const type=r.type.split(';')[0];
-            if(!/^image\/(png|jpeg|webp|gif|avif)$/.test(type)) throw new Error('Nieobsługiwany format ilustracji.');
+            if(!/^image\/(png|jpeg|webp|gif|avif|svg\+xml)$/.test(type)) throw new Error('Nieobsługiwany format ilustracji.');
             if(bytes+r.data.length>160*1024*1024) throw new Error('Osiągnięto limit 160 MB ilustracji.');
             bytes+=r.data.length;cache.set(url,`data:${type};base64,${r.data.toString('base64')}`);
           }
           img.attr('src',cache.get(url)).attr('data-source',url);
+          asset.status='embedded';this.media.embedded++;
         } catch(e) {
           if(this.signal.aborted) throw new Error('Anulowano.');
           this.warnings.push({url,error:'Ilustracja: '+e.message,kind:'image'});
+          asset.status='failed';asset.error=e.message;this.media.failed++;
           img.replaceWith($('<p>').text('[Ilustracja niedostępna: '+(img.attr('alt')||url)+']'));
         }
       }

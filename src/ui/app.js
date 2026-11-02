@@ -18,7 +18,7 @@ function render(){
     check.type='checkbox';check.checked=p.selected;check.disabled=working;
     check.onchange=()=>{p.selected=check.checked;render();};
     label.append(check,document.createTextNode(' '+p.title));
-    const small=document.createElement('small');small.textContent=`${p.words} słów · ${p.url}`;label.append(small);li.append(label);
+    const small=document.createElement('small');small.textContent=`${p.kind==='index'?'Indeks działu (opcjonalny) · ':''}${p.words} słów · ${p.images||0} ilustracji · ${p.url}`;label.append(small);li.append(label);
     for(const [text,delta] of [['↑',-1],['↓',1]]){
       const button=document.createElement('button');button.textContent=text;button.className='quiet';button.title='Przenieś rozdział';
       button.disabled=working||!pages[i+delta];button.onclick=()=>{[pages[i],pages[i+delta]]=[pages[i+delta],pages[i]];render();};li.append(button);
@@ -28,6 +28,8 @@ function render(){
   const n=pages.filter(p=>p.selected).length;
   $('count').textContent=`${n} / ${pages.length} rozdziałów`;
   $('all').checked=n===pages.length;$('all').indeterminate=n>0&&n<pages.length;$('all').disabled=working;$('export').disabled=working||!n;
+  const pictures=pages.filter(p=>p.selected).reduce((sum,p)=>sum+(p.images||0),0);
+  $('export-summary').textContent=$('images').checked?`Ilustracje włączone${pages.length?' · '+pictures+' obrazów w wybranych rozdziałach':''}`:'Wydanie tekstowe — wszystkie ilustracje zostaną pominięte';
 }
 function warnings(items){$('warnings').hidden=!items.length;$('warnings').textContent=items.map(w=>`${w.error}\n${w.url}`).join('\n\n');}
 async function refreshResume(){saved=await window.guides.checkpoint();$('resume-box').hidden=!saved?.pages&&!saved?.pending&&!saved?.failed;if(saved)$('resume-text').textContent=`Zapisana sesja: ${saved.pages} rozdz., ${saved.pending} w kolejce, ${saved.failed} do ponowienia. ${saved.url}`;}
@@ -35,8 +37,9 @@ async function scan(resume=false){
   pages=[];busy(true);render();warnings([]);$('result').hidden=true;
   try {
     const r=await window.guides.scan({url:$('url').value.trim(),mode:$('mode').value,limit:Number($('limit').value),browser:$('browser').checked,autoBrowser:$('auto-browser').checked,resume});
-    pages=r.pages.map(p=>({...p,selected:true}));$('site').textContent=r.site+(r.browser?' · przeglądarka':'');$('book-title').value=pages[0]?.title||'';
-    warnings(r.warnings);status(r.truncated?'Osiągnięto limit — zwiększ go i użyj „Wznów”.':`Znaleziono ${pages.length} rozdziałów. Sprawdź listę i zapisz PDF.`);
+    pages=r.pages.map(p=>({...p,selected:p.kind!=='index'}));$('site').textContent=r.site+(r.browser?' · przeglądarka':'');$('book-title').value=pages[0]?.title||'';
+    const indexes=pages.filter(p=>p.kind==='index').length;
+    warnings(r.warnings);status(r.truncated?'Osiągnięto limit — zwiększ go i użyj „Wznów”.':`Znaleziono ${pages.length-indexes} rozdziałów${indexes?' i '+indexes+' opcjonalnych indeksów':''}. Sprawdź listę i zapisz PDF.`);
   } catch(e){status(errorText(e));}
   finally {busy(false);render();await refreshResume();}
 }
@@ -46,12 +49,13 @@ $('export').onclick=async()=>{
   busy(true);render();
   try {
     const r=await window.guides.export({keys:pages.filter(p=>p.selected).map(p=>p.key),images:$('images').checked,title:$('book-title').value,paper:$('paper').value,fontSize:Number($('font-size').value),landscape:$('landscape').checked});
-    if(r){$('result').hidden=false;$('result-text').textContent=`Zapisano ${r.chapters} rozdziałów: ${r.path}`;status(r.warnings?`PDF zapisany z uwagami (${r.warnings}). Sprawdź raport JSON obok pliku.`:'PDF gotowy. Miłego grania!');await renderHistory();}
+    if(r){$('result').hidden=false;$('result-text').textContent=`Zapisano ${r.chapters} rozdziałów · ${r.illustrations.requested?r.illustrations.embedded+' / '+r.illustrations.expected+' ilustracji':'wydanie bez ilustracji'}: ${r.path}`;status(r.warnings?`PDF zapisany z uwagami (${r.warnings}). Sprawdź raport JSON obok pliku.`:r.illustrations.requested?'PDF gotowy z ilustracjami. Miłego grania!':'Wydanie tekstowe gotowe — ilustracje były wyłączone.');await renderHistory();}
     else status('Zapis anulowany.');
   } catch(e){status(errorText(e));}
   finally {busy(false);render();}
 };
 $('filter').oninput=render;
+$('images').onchange=render;
 $('all').onchange=()=>{pages.forEach(p=>p.selected=$('all').checked);render();};
 $('cancel').onclick=()=>{window.guides.cancel();status('Przerywanie i zapisywanie postępu…');};
 $('open').onclick=()=>window.guides.open();$('folder').onclick=()=>window.guides.folder();

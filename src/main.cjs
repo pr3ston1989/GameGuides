@@ -61,10 +61,12 @@ async function main({engineOptions={},saveDialog=(...args)=>dialog.showSaveDialo
       const layout={images:!!args.images,warnings:engine.warnings,title,fontSize:args.fontSize,paper:args.paper,landscape:!!args.landscape};
       const rendered=await printBook(bookHtml(chapters,layout),result.filePath);
       engine.warnings.push(...rendered.warnings);
-      const report={created:new Date().toISOString(),source:engine.seed,allDiscoveredSelected:args.keys.length===engine.pages.size,complete:!engine.pending.length&&!engine.warnings.length&&args.keys.length===engine.pages.size,selected:args.keys.length,discovered:engine.pages.size,pending:engine.pending.length,truncated:engine.truncated,layout:{title,fontSize:args.fontSize||11,paper:args.paper||'A4',landscape:!!args.landscape,images:!!args.images},chapters:chapters.map(p=>({title:p.title,url:p.url,words:p.words})),warnings:engine.warnings};
+      for(const warning of rendered.warnings){const asset=engine.media.assets.find(a=>a.url===warning.url&&a.status==='embedded');if(asset){asset.status='failed';asset.error=warning.error;engine.media.embedded--;engine.media.failed++;}}
+      const contentPages=[...engine.pages].filter(([,p])=>p.kind!=='index');
+      const report={created:new Date().toISOString(),source:engine.seed,allDiscoveredSelected:args.keys.length===engine.pages.size,complete:!engine.pending.length&&!engine.warnings.length&&contentPages.every(([key])=>args.keys.includes(key)),selected:args.keys.length,discovered:engine.pages.size,skippedIndexes:[...engine.pages].filter(([key,p])=>p.kind==='index'&&!args.keys.includes(key)).map(([key])=>key),pending:engine.pending.length,truncated:engine.truncated,layout:{title,fontSize:args.fontSize||11,paper:args.paper||'A4',landscape:!!args.landscape,images:!!args.images},illustrations:engine.media,chapters:chapters.map(p=>({title:p.title,url:p.url,words:p.words,images:p.images,kind:p.kind})),warnings:engine.warnings};
       await fs.writeFile(result.filePath+'.report.json',JSON.stringify(report,null,2));lastFile=result.filePath;
       const items=(await history()).filter(item=>path.normalize(item.path).toLowerCase()!==path.normalize(lastFile).toLowerCase());items.unshift({title,path:lastFile,date:report.created,chapters:chapters.length});await fs.writeFile(historyFile(),JSON.stringify(items.slice(0,30)));
-      return {path:lastFile,warnings:engine.warnings.length,chapters:chapters.length};
+      return {path:lastFile,warnings:engine.warnings.length,chapters:chapters.length,illustrations:engine.media};
     } finally {busy=false;}
   });
   await win.loadFile(path.join(__dirname,'ui/index.html'));

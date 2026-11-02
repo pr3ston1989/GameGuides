@@ -1,6 +1,7 @@
 const cheerio = require('cheerio');
 const sanitize = require('sanitize-html');
 const { adapter, belongs, normalize } = require('./sites.cjs');
+const EXTRACTOR_VERSION=2;
 
 const noise = [
   'script', 'style', 'noscript', 'form', 'button', 'input', 'nav', 'footer',
@@ -12,7 +13,8 @@ const noise = [
   '.social', '.share', '.sharing', '.article-share', '.share-links',
   '.guide-page-content-footer', '.guide-page-topper', '.affiliate-disclaimer',
   '#utility-bar', '.spons', '.gg-ad', '.remove-this-ad', '.nc_socialPanel',
-  '.powio-3-c', '.game2-obj-c', '.s024-np-c', '.no-print'
+  '.powio-3-c', '.game2-obj-c', '.s024-np-c', '.no-print',
+  '#toc', '.toc', '.ez-toc-container', '.mw-editsection'
 ].join(',');
 
 function firstText($, selector) {
@@ -21,8 +23,11 @@ function firstText($, selector) {
 
 function imageSource(img) {
   const lazy = img.attr('data-src') || img.attr('data-lazy-src') || img.attr('data-original');
-  if (lazy && !lazy.startsWith('data:')) return lazy;
-  const set = img.attr('data-srcset') || img.attr('srcset') || img.closest('picture').find('source').first().attr('srcset');
+  if (lazy && !/[<>]/.test(lazy) && !lazy.startsWith('data:')) return lazy;
+  const ownSet=img.attr('data-srcset')||img.attr('srcset');
+  const direct=img.attr('src');
+  if(!ownSet&&direct&&!direct.startsWith('data:'))return direct;
+  const set = ownSet || img.closest('picture').find('source').last().attr('srcset');
   if (set) {
     const choices = set.split(',').map(s => s.trim().split(/\s+/)).filter(a => a[0]);
     choices.sort((a,b) => (parseFloat(a[1]) || 1) - (parseFloat(b[1]) || 1));
@@ -67,7 +72,25 @@ function extract(html, url, seed = url) {
     if (el.length && el.text().trim().length > 100) { root = el.clone(); selectorUsed = selector; break; }
   }
   if (!root) throw new Error('Nie znaleziono treści poradnika. Strona może wymagać JavaScript lub mieć zmieniony układ.');
+  if(['Gamepressure','GRYOnline'].includes(site.name)){
+    const maps=$('main > .guide16-map-c figure');
+    maps.toArray().reverse().forEach(el=>{
+      const map=$(el).clone(),original=map.find('a.guide-map-2020-zoom[href]').first().attr('href');
+      map.find('img').first().addClass('map-image');
+      if(original)map.find('img').first().attr('data-src',original);
+      map.find('.guide-map-2020-zoom').remove();
+      map.append(map.find('figcaption'));root.prepend(map);
+    });
+    root.find('.text-frame-red,.text-frame-green,.text-frame-blue').each((_,el)=>$(el).attr('class','callout'));
+    root.children('ul').each((_,el)=>{const ul=$(el),anchors=ul.find('a[href]');if(anchors.length&&anchors.toArray().every(a=>$(a).attr('href').startsWith('#'))&&ul.text().replace(/\s+/g,'')===anchors.text().replace(/\s+/g,''))ul.remove();});
+  }
   if(site.name==='PlayStationTrophies'){
+    // Forum emoticons encode controls and trophy labels, rather than photographs.
+    // Print their accessible labels inline; the obsolete forum image endpoint is blocked.
+    root.find('img.inlineimg[src*="/forum/images/smilies/"]').each((_,el)=>{
+      const img=$(el),label=img.attr('title')||img.attr('alt')||new URL(img.attr('src'),base).pathname.split('/').pop().replace(/\.\w+$/,'');
+      img.replaceWith($('<span>').text('['+label+']'));
+    });
     root.find('.achi__actions,.achi__bottom,.achi__header>.text-right').remove();
     root.find('.achilist__item').each((_,el)=>{
       const item=$(el),name=item.find('.achilist__title').first().text().trim();
@@ -113,14 +136,21 @@ function extract(html, url, seed = url) {
     if (aside.is('.object-google-sheet, .gallery') || aside.find('table').length) aside.replaceWith(aside.html());
     else aside.remove();
   });
+  root.find('img[data-lazy-type="iframe"]').each((_,el)=>{
+    const node=$(el),fragment=cheerio.load(node.attr('data-lazy-src')||'');
+    const frame=fragment('iframe').first();
+    if(frame.length)node.replaceWith($('<iframe>').attr('src',frame.attr('src')||''));else node.remove();
+  });
   root.find('iframe').each((_, el) => {
     const frame = $(el); let href;
     try { href = normalize(frame.attr('src'), base); } catch {}
     if (href && /(?:^|\.)(?:youtube\.com|youtu\.be|vimeo\.com)$/.test(new URL(href).hostname)) {
-      frame.replaceWith($('<p>').append($('<a>').attr('href',href).text('Materiał wideo — otwórz w serwisie źródłowym')));
+      const replacement=$('<p>').append($('<a>').attr('href',href).text('Materiał wideo — otwórz w serwisie źródłowym'));
+      const figure=frame.closest('figure');if(figure.length)figure.replaceWith(replacement);else frame.replaceWith(replacement);
     } else frame.remove();
   });
   root.find(noise).remove();
+  root.find('p').filter((_,el)=>/^Subscribe to .+ on YouTube\s*\d*[\d.km]*$/i.test($(el).text().replace(/\s+/g,' ').trim())).remove();
   if(['Gamepressure','GRYOnline'].includes(site.name)) {
     root.children('div.btd.pb20.pt20').remove();
     root.find('.auth-bio-c').each((_,el)=>{
@@ -132,11 +162,13 @@ function extract(html, url, seed = url) {
   root.find('img[src*="/im/plat/"], .byline-action').remove();
   root.find('details').each((_, el) => { const details = $(el); details.replaceWith($('<div>').html(details.html())); });
   root.find('summary, .subSectionTitle').each((_, el) => { const node = $(el); node.replaceWith($('<h3>').html(node.html()).attr('id',node.attr('id') || '')); });
+  const mediaIssues=[];
   root.find('img').each((_, el) => {
     const img = $(el), src = imageSource(img);
-    const inlineIcon=img.hasClass('inlineimg')||/\/images\/icons\//.test(src||'');
-    try { img.attr('src', normalize(src,base)); } catch { img.remove(); return; }
+    const inlineIcon=img.hasClass('inlineimg')||/\/images\/icons\//.test(src||''),mapImage=img.hasClass('map-image');
+    try { img.attr('src', normalize(src,base)); } catch {if((img.attr('alt')||'').trim()||Number(img.attr('width'))>80)mediaIssues.push('Nie udało się odczytać adresu ilustracji: '+(img.attr('alt')||'obraz bez opisu'));img.remove(); return; }
     img.removeAttr('srcset').removeAttr('style').removeAttr('class');
+    if(mapImage)img.attr('class','map-image');
     if (inlineIcon || (Number(img.attr('width')) > 0 && Number(img.attr('width')) <= 48) || /\/(?:\d+_trophy\.|trophy\.|trophy-guide-(?:platinum|gold|silver|bronze)\.)|\/smilies\//.test(src || '')) img.attr('class','inline-image');
   });
   root.find('a[href]').each((_, el) => {
@@ -150,17 +182,17 @@ function extract(html, url, seed = url) {
   const content = sanitize(root.html(), {
     allowedTags: sanitize.defaults.allowedTags.concat(['img','figure','figcaption']),
     allowedAttributes: { '*':['id'], a:['href','name'], img:['src','alt','width','height','class'], div:['class'],section:['class'],td:['colspan','rowspan'], th:['colspan','rowspan'] },
-    allowedClasses: { img:['inline-image'],div:['trophy-header'],section:['trophy'] }, allowedSchemes:['http','https'], allowProtocolRelative:false
+    allowedClasses: { img:['inline-image','map-image'],div:['trophy-header','callout'],section:['trophy'] }, allowedSchemes:['http','https'], allowProtocolRelative:false
   });
   const q = cheerio.load(content), text = q.text().replace(/\s+/g,' ').trim();
-  if (text.length < 100) throw new Error('Zbyt mało treści, aby utworzyć rozdział.');
   const linkDensity = q('a').text().length / Math.max(text.length,1);
   const isIndex=linkDensity>0.8&&!q('table').length&&!q('p').filter((_,el)=>q(el).text().length>120).length;
+  if (text.length < 100 && !(isIndex&&!site.single&&site.scope&&q('a[href]').length)) throw new Error('Zbyt mało treści, aby utworzyć rozdział.');
   if (isIndex && (site.single || !site.scope)) {
     throw new Error('Podany adres wygląda na katalog linków, a nie treść poradnika. Wklej adres konkretnego poradnika.');
   }
-  const quality = [];
+  const quality = [...mediaIssues];
   if (text.split(/\s+/).length < 60 && !isIndex) quality.push('Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik.');
-  return { title, content, links, url, site:site.name, words:text.split(/\s+/).length, quality, selector:selectorUsed,kind:isIndex?'index':'article' };
+  return { title, content, links, url, site:site.name, words:text.split(/\s+/).length, quality, selector:selectorUsed,kind:isIndex?'index':'article',images:q('img').length,tables:q('table').length,extractorVersion:EXTRACTOR_VERSION };
 }
-module.exports = { extract, imageSource,assertAccessible };
+module.exports = { extract, imageSource,assertAccessible,EXTRACTOR_VERSION };

@@ -1,6 +1,6 @@
 {
   "name": "gameguides",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Poradniki do gier w eleganckim PDF",
   "author": "pr3ston1989",
   "license": "MIT",
@@ -26,6 +26,7 @@
   "devDependencies": {
     "electron": "^42.0.0",
     "electron-builder": "^26.0.12",
+    "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^6.5.438",
     "png-to-ico": "^3.0.1",
     "sharp": "^0.35.5"

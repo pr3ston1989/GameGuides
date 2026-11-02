@@ -8,9 +8,10 @@ const tokenise=s=>s.normalize('NFKC').toLocaleLowerCase().match(/[\p{L}\p{N}]+/g
 async function main(){
  const pdfjs=await import('pdfjs-dist/legacy/build/pdf.mjs');
  const root=path.resolve('output/qa');const report=JSON.parse(await fs.readFile(path.join(root,'pdf-report.json'),'utf8'));
- const results=[];
+ const filter=process.env.QA_SITES?.split(',');let results=[];
+ if(filter){try{results=JSON.parse(await fs.readFile(path.join(root,'visual-report.json'),'utf8')).filter(r=>!filter.includes(r.site));}catch{}}
  await fs.mkdir(path.join(root,'renders'),{recursive:true});
- for(const item of report.filter(x=>x.ok)){
+ for(const item of report.filter(x=>x.ok&&(!filter||filter.includes(x.site)))){
   const pdf=path.join(root,item.file),name=path.basename(item.file,'.pdf');
   const loading=pdfjs.getDocument({data:new Uint8Array(await fs.readFile(pdf)),useSystemFonts:true});
   const doc=await loading.promise;

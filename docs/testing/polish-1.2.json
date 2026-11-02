@@ -1,0 +1,602 @@
+{
+  "version": "1.2.0",
+  "created": "2026-11-02T11:04:00.471Z",
+  "greedfall": {
+    "source": "https://www.gamepressure.com/greedfall/",
+    "sourcePages": 163,
+    "chapters": 135,
+    "skippedIndexes": 28,
+    "pdfPages": 489,
+    "bytes": 30522734,
+    "sha256": "6b65ce2d2a9ee4fdfce881d6ed987adbf3e4c58e3d207dccabc8f81f623352c6",
+    "sourceImages": 711,
+    "embeddedImages": 711,
+    "pdfImageDraws": 711,
+    "jpegOriginals": 648,
+    "exactJpegMatches": 648,
+    "paragraphs": {
+      "expected": 1063,
+      "retained": 1063,
+      "missing": 0,
+      "method": "NFKC; letters and digits in source paragraphs longer than 60 characters, compared with all PDF pages excluding footers"
+    },
+    "internalLinks": 470,
+    "brokenLinks": 0,
+    "overflow": 0,
+    "footerCollisions": 0,
+    "visualReview": {
+      "overviewPages": 489,
+      "boards": 11,
+      "detailedPages": [
+        2,
+        13,
+        240,
+        303,
+        379,
+        438,
+        489
+      ]
+    }
+  },
+  "samples": [
+    {
+      "site": "Gamepressure",
+      "url": "https://www.gamepressure.com/greedfall/",
+      "pages": 10,
+      "words": 2703,
+      "images": {
+        "expected": 0,
+        "embedded": 0,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Eurogamer",
+      "url": "https://www.eurogamer.net/the-blood-of-dawnwalker-best-route-walkthrough",
+      "pages": 8,
+      "words": 1857,
+      "images": {
+        "expected": 3,
+        "embedded": 3,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Gamepressure",
+      "url": "https://www.gamepressure.com/clair-obscur-expedition-33/",
+      "pages": 6,
+      "words": 2036,
+      "images": {
+        "expected": 0,
+        "embedded": 0,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Eurogamer",
+      "url": "https://www.eurogamer.net/control-resonant-the-last-taxi-locations-puzzle-solutions",
+      "pages": 21,
+      "words": 2031,
+      "images": {
+        "expected": 28,
+        "embedded": 28,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Gamer Guides",
+      "url": "https://www.gamerguides.com/the-witcher-3-wild-hunt/guide/gwent/card-locations/gwent-in-novigrad",
+      "pages": 15,
+      "words": 2378,
+      "images": {
+        "expected": 113,
+        "embedded": 113,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "GamesRadar+",
+      "url": "https://www.gamesradar.com/games/strategy/anime-galaxies-codes/",
+      "pages": 3,
+      "words": 507,
+      "images": {
+        "expected": 2,
+        "embedded": 2,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "GamesRadar+",
+      "url": "https://www.gamesradar.com/games/strategy/anime-expeditions-codes/",
+      "pages": 3,
+      "words": 565,
+      "images": {
+        "expected": 2,
+        "embedded": 2,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "GRYOnline",
+      "url": "https://www.gry-online.pl/poradniki/assassins-creed-black-flag-resynced/",
+      "pages": 5,
+      "words": 1545,
+      "images": {
+        "expected": 0,
+        "embedded": 0,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Gamer Guides",
+      "url": "https://www.gamerguides.com/assassins-creed-valhalla/guide/settlement/settlement-guide/settlement-levels-and-buildings",
+      "pages": 12,
+      "words": 2962,
+      "images": {
+        "expected": 9,
+        "embedded": 9,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "IGN",
+      "url": "https://www.ign.com/wikis/elden-ring/Ronin%27s_Set",
+      "pages": 2,
+      "words": 136,
+      "images": {
+        "expected": 1,
+        "embedded": 1,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Neoseeker",
+      "url": "https://www.neoseeker.com/clair-obscur-expedition-33/Pinabby",
+      "pages": 1,
+      "words": 88,
+      "images": {
+        "expected": 1,
+        "embedded": 1,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "GRYOnline",
+      "url": "https://www.gry-online.pl/poradniki/indiana-jones-and-the-great-circle/",
+      "pages": 8,
+      "words": 2287,
+      "images": {
+        "expected": 0,
+        "embedded": 0,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "IGN",
+      "url": "https://www.ign.com/wikis/elden-ring/Monk%27s_Flamemace",
+      "pages": 3,
+      "words": 309,
+      "images": {
+        "expected": 2,
+        "embedded": 2,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Neoseeker",
+      "url": "https://www.neoseeker.com/clair-obscur-expedition-33/Grosse_Tete",
+      "pages": 2,
+      "words": 428,
+      "images": {
+        "expected": 1,
+        "embedded": 1,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "PC Gamer",
+      "url": "https://www.pcgamer.com/games/survival-crafting/subnautica-2-guide/",
+      "pages": 13,
+      "words": 1184,
+      "images": {
+        "expected": 22,
+        "embedded": 22,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "PC Gamer",
+      "url": "https://www.pcgamer.com/games/roblox/blue-lock-rivals-codes/",
+      "pages": 4,
+      "words": 772,
+      "images": {
+        "expected": 1,
+        "embedded": 1,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "PlayStationTrophies",
+      "url": "https://www.playstationtrophies.org/game/project-007-working-title/guide/",
+      "pages": 16,
+      "words": 4958,
+      "images": {
+        "expected": 105,
+        "embedded": 105,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "PowerPyx",
+      "url": "https://www.powerpyx.com/red-dead-redemption-1-ps5-ps4-trophy-guide-roadmap/",
+      "pages": 37,
+      "words": 8461,
+      "images": {
+        "expected": 216,
+        "embedded": 216,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "PlayStationTrophies",
+      "url": "https://www.playstationtrophies.org/game/mafia-3/guide/",
+      "pages": 43,
+      "words": 12609,
+      "images": {
+        "expected": 100,
+        "embedded": 100,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Steam Community",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2804069465",
+      "pages": 3,
+      "words": 223,
+      "images": {
+        "expected": 2,
+        "embedded": 2,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Samurai Gamers",
+      "url": "https://samurai-gamers.com/dragon-quest-3-remake/dq3re-slime-earrings-accessory-guide/",
+      "pages": 7,
+      "words": 582,
+      "images": {
+        "expected": 11,
+        "embedded": 11,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Steam Community",
+      "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3831381063",
+      "pages": 1,
+      "words": 13,
+      "images": {
+        "expected": 0,
+        "embedded": 0,
+        "failed": 0
+      },
+      "warnings": [
+        {
+          "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3831381063",
+          "error": "Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik.",
+          "kind": "quality"
+        }
+      ],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Samurai Gamers",
+      "url": "https://samurai-gamers.com/metaphor-refantazio/metaphor-does-demo-progress-carry-over/",
+      "pages": 3,
+      "words": 282,
+      "images": {
+        "expected": 2,
+        "embedded": 2,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "StrategyWiki",
+      "url": "https://strategywiki.org/wiki/Tetris",
+      "pages": 3,
+      "words": 486,
+      "images": {
+        "expected": 3,
+        "embedded": 3,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 0.9965,
+      "unmatchedTokens": [
+        "те"
+      ],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "PowerPyx",
+      "url": "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/",
+      "pages": 47,
+      "words": 10346,
+      "images": {
+        "expected": 241,
+        "embedded": 241,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 0.9994,
+      "unmatchedTokens": [
+        "prev"
+      ],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "StrategyWiki",
+      "url": "https://strategywiki.org/wiki/ARMS",
+      "pages": 3,
+      "words": 38,
+      "images": {
+        "expected": 9,
+        "embedded": 9,
+        "failed": 0
+      },
+      "warnings": [
+        {
+          "url": "https://strategywiki.org/wiki/ARMS",
+          "error": "Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik.",
+          "kind": "quality"
+        }
+      ],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Push Square",
+      "url": "https://www.pushsquare.com/guides/stellar-blade-spire-4-walkthrough-cans-design-patterns-beta-cores-body-cores-exospines-passcodes-camps",
+      "pages": 27,
+      "words": 1511,
+      "images": {
+        "expected": 59,
+        "embedded": 59,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Push Square",
+      "url": "https://www.pushsquare.com/guides/stellar-blade-all-butterflies-in-the-wasteland-locations",
+      "pages": 11,
+      "words": 410,
+      "images": {
+        "expected": 31,
+        "embedded": 31,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Nintendo Life",
+      "url": "https://www.nintendolife.com/guides/hyrule-warriors-age-of-imprisonment-all-playable-characters-and-how-to-unlock-them",
+      "pages": 18,
+      "words": 1121,
+      "images": {
+        "expected": 28,
+        "embedded": 28,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Game8",
+      "url": "https://game8.co/games/Elden-Ring/archives/378552",
+      "pages": 7,
+      "words": 1409,
+      "images": {
+        "expected": 82,
+        "embedded": 82,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Nintendo Life",
+      "url": "https://www.nintendolife.com/guides/pokemon-legends-z-a-pokedex-all-lumiose-pokemon-locations-and-evolutions",
+      "pages": 15,
+      "words": 1403,
+      "images": {
+        "expected": 5,
+        "embedded": 5,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    },
+    {
+      "site": "Game8",
+      "url": "https://game8.co/games/Elden-Ring/archives/370519",
+      "pages": 4,
+      "words": 337,
+      "images": {
+        "expected": 17,
+        "embedded": 17,
+        "failed": 0
+      },
+      "warnings": [],
+      "tokenCoverage": 1,
+      "unmatchedTokens": [],
+      "overflow": 0,
+      "brokenLinks": 0
+    }
+  ],
+  "ui": {
+    "ok": true,
+    "checks": [
+      "scan",
+      "limit",
+      "resume",
+      "filter",
+      "reorder",
+      "custom title",
+      "Letter landscape",
+      "PDF dimensions",
+      "PDF internal links",
+      "PDF export",
+      "corrupt images reported",
+      "history update",
+      "cancel",
+      "resume after cancel",
+      "indexes optional by default",
+      "content completeness without indexes",
+      "compact layout",
+      "invalid URL"
+    ]
+  },
+  "unitTests": 40,
+  "limitations": [
+    "Ograniczona próba 16 serwisów, po dwa adresy, nie wszystkie poradniki.",
+    "Cztery serwisy z odmową/błędem nadal są oznaczone jako ograniczone.",
+    "Dwie bardzo krótkie strony mają ostrzeżenie jakości.",
+    "Metryka tokenów jest pomocnicza; różnice segmentacji tekstu PDF pozostawiono jawnie w danych.",
+    "Ręczny przegląd plansz nie jest korektą każdego słowa."
+  ]
+}

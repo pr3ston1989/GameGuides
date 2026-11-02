@@ -26,12 +26,12 @@ app.whenReady().then(async()=>{
         const original=local.samples.find(s=>s.url===sample.url);
         const page=extract(await fs.readFile('output/research/'+original.fixture,'utf8'),sample.url);
         const engine=new Engine(()=>{},null,{fetcher:transport});engine.pages.set(sample.url,page);engine.seed=sample.url;engine.warnings=(page.quality||[]).map(error=>({url:sample.url,error,kind:'quality'}));
-        const images=sample===imageSample;
+        const images=process.env.QA_IMAGES==='all'||sample===imageSample;
         const chapters=await engine.chapters([sample.url],images);
         const file=path.join(root,key+'.pdf');
         const rendered=await printBook(bookHtml(chapters,{images,warnings:engine.warnings}),file);
         engine.warnings.push(...rendered.warnings);
-        results.push({site:site.name,url:sample.url,file:path.basename(file),words:page.words,images,warnings:engine.warnings,ok:true});
+        results.push({site:site.name,url:sample.url,file:path.basename(file),words:page.words,images,media:engine.media,warnings:engine.warnings,ok:true});
         console.log('PDF_OK',key,'images='+images,'warnings='+engine.warnings.length);
       }catch(e){results.push({site:site.name,url:sample.url,ok:false,error:e.message});console.log('PDF_ERROR',key,e.message);}
       await fs.writeFile(path.join(root,'pdf-report.json'),JSON.stringify(results,null,2));

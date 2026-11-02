@@ -5,14 +5,15 @@ const assert=require('node:assert/strict');
 const {main}=require('../src/main.cjs');
 const root=path.resolve('output/ui-qa');
 app.setPath('userData',path.join(root,'profile'));app.on('window-all-closed',()=>{});
-let slow=false,exportIndex=0,brokenImage=false;
+let slow=false,exportIndex=0,brokenImage=false,includeIndex=false;
 const base='https://www.ign.com/wikis/qa';
 const text='Przykładowa treść zadania z tabelą, nagłówkami i odnośnikami do kolejnych rozdziałów. '.repeat(12);
 async function fetcher(url){
   if(url.endsWith('/broken.png'))return {url,type:'image/png',data:Buffer.from('broken-image')};
   if(url.endsWith('/robots.txt'))return {url,type:'text/plain',data:Buffer.from('User-agent: *\nAllow: /')};
+  if(url.endsWith('/index'))return {url,type:'text/html',data:Buffer.from('<h1>Indeks</h1><article>'+Array.from({length:12},(_,i)=>`<a href="#part-${i}">Spis rozdziałów i pozycji ${i}</a>`).join('')+'</article>')};
   const number=url===base?0:Number(url.split('/').at(-1));
-  const links=number===0?[1,2,3].map(n=>`<a href="${base}/${n}#boss">Misja ${n}</a>`).join(''):'';
+  const links=number===0?[1,2,3,...includeIndex?['index']:[]].map(n=>`<a href="${base}/${n}#boss">Misja ${n}</a>`).join(''):'';
   return {url,type:'text/html',data:Buffer.from(`<h1>${number?'Misja '+number:'Poradnik QA'}</h1><article><p>${text}</p><h2 id="boss">Boss</h2><table><thead><tr><th>Cel</th><th>Warunek</th></tr></thead><tr><td>Zakończ misję</td><td>Znajdź klucz</td></tr></table>${links}${brokenImage?'<img src="https://cdn.example.com/broken.png" alt="Mapa zadania">':''}</article>`)};
 }
 function wait(ms,signal){return new Promise((resolve,reject)=>{const timer=setTimeout(resolve,slow?2000:10);signal.addEventListener('abort',()=>{clearTimeout(timer);reject(new Error('Anulowano.'));},{once:true});});}
@@ -54,11 +55,18 @@ app.whenReady().then(async()=>{
  await run(`document.getElementById('export').click()`);
  await until(`document.getElementById('result-text').textContent.includes('ui-export-3')&&!document.getElementById('export').disabled`);
  const third=JSON.parse(await fs.readFile(path.join(root,'ui-export-3.pdf.report.json'),'utf8'));assert.equal(third.complete,false);assert.equal(third.warnings.length,4);assert(third.warnings.every(w=>w.error.includes('nieczytelny')));
+ includeIndex=true;brokenImage=false;
+ await run(`document.getElementById('scan').click()`);
+ await until(`!document.getElementById('scan').disabled&&document.querySelectorAll('#pages li').length===5`);
+ assert(await run(`document.getElementById('count').textContent.startsWith('4 / 5')`));
+ await run(`document.getElementById('export').click()`);
+ await until(`document.getElementById('result-text').textContent.includes('ui-export-4')&&!document.getElementById('export').disabled`);
+ const fourth=JSON.parse(await fs.readFile(path.join(root,'ui-export-4.pdf.report.json'),'utf8'));assert.equal(fourth.complete,true);assert.equal(fourth.skippedIndexes.length,1);
  win.setSize(920,760);await new Promise(r=>setTimeout(r,200));await fs.writeFile(path.join(root,'compact.png'),(await win.webContents.capturePage()).toPNG());
  assert(await run(`document.documentElement.scrollWidth<=innerWidth`));
  await run(`document.getElementById('source-details').open=true;document.getElementById('source-details').scrollIntoView()`);await fs.writeFile(path.join(root,'sources.png'),(await win.webContents.capturePage()).toPNG());
  await run(`document.getElementById('url').value='file:///C:/secret';document.getElementById('scan').click()`);
  await until(`!document.getElementById('scan').disabled&&document.getElementById('status').textContent.includes('HTTP')`);
- await fs.writeFile(path.join(root,'result.json'),JSON.stringify({ok:true,checks:['scan','limit','resume','filter','reorder','custom title','Letter landscape','PDF dimensions','PDF internal links','PDF export','corrupt images reported','history update','cancel','resume after cancel','compact layout','invalid URL'],exports:[first,second,third]},null,2));
+ await fs.writeFile(path.join(root,'result.json'),JSON.stringify({ok:true,checks:['scan','limit','resume','filter','reorder','custom title','Letter landscape','PDF dimensions','PDF internal links','PDF export','corrupt images reported','history update','cancel','resume after cancel','indexes optional by default','content completeness without indexes','compact layout','invalid URL'],exports:[first,second,third,fourth]},null,2));
  console.log('UI_CHECK_OK');win.destroy();app.exit(0);
 }).catch(e=>{console.error(e);app.exit(1);});

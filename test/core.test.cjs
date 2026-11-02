@@ -15,4 +15,4 @@ test('ekstrakcja treści, nawigacja i neutralizacja HTML',()=>{
  assert.throws(()=>extract('<title>Just a moment</title><article>captcha</article>','https://ign.com/wikis/game'),/CAPTCHA/);
 });
 test('blokowanie prywatnych adresów IPv4 i IPv6',()=>{for(const ip of ['127.0.0.1','10.1.2.3','192.168.0.2','169.254.169.254','::1','::ffff:127.0.0.1','fe80::1'])assert(privateIP(ip),ip);for(const ip of ['1.1.1.1','8.8.8.8','2606:4700:4700::1111'])assert(!privateIP(ip),ip);});
-test('książka ma spis, źródła i bezpieczny tytuł',()=>{const html=bookHtml([{title:'<script>x</script>',url:'https://example.com',content:'<p>Text</p>'}]);assert(html.includes('href="#chapter-0"'));assert(html.includes('&lt;script&gt;'));assert(html.includes('Źródło:'));assert(html.includes("default-src 'none'"));});
+test('książka ma spis, źródła i bezpieczny tytuł',()=>{const html=bookHtml([{title:'<script>x</script>',url:'https://example.com',content:'<p>Text</p>'},{title:'B',url:'https://example.com/b',content:'<p>Text B</p>'}]);assert(html.includes('href="#chapter-0"'));assert(html.includes('&lt;script&gt;'));assert(html.includes('Źródło:'));assert(html.includes("default-src 'none'"));});

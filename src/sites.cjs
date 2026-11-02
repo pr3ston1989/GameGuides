@@ -22,6 +22,7 @@ const sites = [
 ];
 function normalize(value, base) {
   if (typeof value !== 'string' || !value.trim()) throw new Error('Brak adresu strony.');
+  if (/[<>\x00-\x1f]/.test(value)) throw new Error('Nieprawidłowy adres strony.');
   const u = new URL(value, base);
   if (!['http:','https:'].includes(u.protocol) || u.username || u.password) throw new Error('Podaj publiczny adres HTTP lub HTTPS.');
   u.hash='';
