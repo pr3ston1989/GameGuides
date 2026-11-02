@@ -63,6 +63,12 @@ function extract(html, url, seed = url) {
     } catch {}
   });
   let root, selectorUsed;
+  const scope=site.scope?.(new URL(seed));
+  const isScopeRoot=scope&&new URL(url).pathname.replace(/\/$/,'')===scope.replace(/\/$/,'');
+  const indexFromLinks=()=>{
+    const list=$('<ul>');for(const link of links)if(link.url!==url)list.append($('<li>').append($('<a>').attr('href',link.url).text(link.title)));
+    return {title,content:$.html(list),links,url,site:site.name,words:list.text().split(/\s+/).length,quality:[],kind:'index',images:0,tables:0,extractorVersion:EXTRACTOR_VERSION};
+  };
   if(site.collect){
     const sections=$(site.selector).filter((_,el)=>$(el).text().trim().length>20);
     if(sections.length){root=$('<div>');sections.each((_,el)=>root.append($(el).clone()));selectorUsed=site.selector;}
@@ -71,7 +77,7 @@ function extract(html, url, seed = url) {
     const el = $(selector).first();
     if (el.length && el.text().trim().length > 100) { root = el.clone(); selectorUsed = selector; break; }
   }
-  if (!root) throw new Error('Nie znaleziono treści poradnika. Strona może wymagać JavaScript lub mieć zmieniony układ.');
+  if (!root){if(isScopeRoot&&links.length>1)return indexFromLinks();throw new Error('Nie znaleziono treści poradnika. Strona może wymagać JavaScript lub mieć zmieniony układ.');}
   if(['Gamepressure','GRYOnline'].includes(site.name)){
     const maps=$('main > .guide16-map-c figure');
     maps.toArray().reverse().forEach(el=>{
@@ -189,7 +195,7 @@ function extract(html, url, seed = url) {
   const linkDensity = q('a').text().length / Math.max(text.length,1);
   const hasMedia=q('img').length>0||q('a[href]').toArray().some(el=>/^https:\/\/(?:www\.)?(?:youtube\.com|youtu\.be|vimeo\.com)\//.test(q(el).attr('href')));
   const isIndex=!hasMedia&&linkDensity>0.8&&!q('table').length&&!q('p').filter((_,el)=>q(el).text().length>120).length;
-  if (text.length < 100 && !hasMedia && !(isIndex&&!site.single&&site.scope&&q('a[href]').length)) throw new Error('Zbyt mało treści, aby utworzyć rozdział.');
+  if (text.length < 100 && !hasMedia && !(isIndex&&!site.single&&site.scope&&q('a[href]').length)){if(isScopeRoot&&links.length>1)return indexFromLinks();throw new Error('Zbyt mało treści, aby utworzyć rozdział.');}
   if (isIndex && (site.single || !site.scope)) {
     throw new Error('Podany adres wygląda na katalog linków, a nie treść poradnika. Wklej adres konkretnego poradnika.');
   }

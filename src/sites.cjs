@@ -33,6 +33,7 @@ function normalize(value, base) {
 function adapter(url) { const u=new URL(url); return sites.find(s=>u.hostname===s.host || u.hostname.endsWith('.'+s.host)) || {name:'Tryb uniwersalny',selector:'article, main, .entry-content, #content',single:true}; }
 function belongs(seed, candidate) {
   const a=new URL(seed), b=new URL(candidate), s=adapter(seed);
+  if(/\/Special:/i.test(b.pathname))return false;
   const sameHost=a.hostname.replace(/^www\./,'')===b.hostname.replace(/^www\./,'')&&a.port===b.port;
   if(!sameHost) return false;
   if(s.single) return a.pathname.replace(/\/$/,'')===b.pathname.replace(/\/$/,'')&&a.search===b.search;

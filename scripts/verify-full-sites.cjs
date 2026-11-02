@@ -9,7 +9,7 @@ const cases=[
  ['Gamer Guides','https://www.gamerguides.com/the-witcher-3-wild-hunt/guide/gwent/card-locations/gwent-in-novigrad'],
  ['GRYOnline','https://www.gry-online.pl/poradniki/assassins-creed-black-flag-resynced/'],
  ['Samurai Gamers','https://samurai-gamers.com/metaphor-refantazio/metaphor-does-demo-progress-carry-over/'],
- ['Game8','https://game8.co/games/Elden-Ring/archives/378552'],
+ ['Game8','https://game8.co/games/MetroidDread'],
  ['PowerPyx','https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/'],
  ['Neoseeker','https://www.neoseeker.com/clair-obscur-expedition-33/','browser'],
  ['StrategyWiki','https://strategywiki.org/wiki/Tetris','browser'],

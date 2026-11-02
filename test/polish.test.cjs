@@ -7,6 +7,11 @@ test('IGN zachowuje rozdział zawierający wyłącznie film zamiast odrzucać go
  const p=extract('<h1>Advanced chamber</h1><div class="wiki-page"><p>&lt;youtube&gt;<a href="https://www.youtube.com/watch?v=test">https://www.youtube.com/watch?v=test</a>&lt;/youtube&gt;</p><div><h3>Up Next: next chamber</h3>'+text+'</div></div>','https://www.ign.com/wikis/portal/Advanced');
  assert.equal(p.kind,'article');assert(p.content.includes('https://www.youtube.com/watch?v=test'));assert(!p.content.includes('&lt;youtube&gt;'));assert(p.quality.length);
 });
+test('pusta strona głównego spisu używa rzeczywistych linków i pomija narzędzia wiki',()=>{
+ const url='https://www.gamerguides.com/test/guide';const p=extract('<h1>Spis</h1><nav><a href="/test/guide/a">Misja A</a><a href="/test/guide/b">Misja B</a></nav>',url);
+ assert.equal(p.kind,'index');assert.equal(p.links.length,2);assert(p.content.includes('Misja A'));
+ const {belongs}=require('../src/sites.cjs');assert.equal(belongs('https://www.neoseeker.com/test/','https://www.neoseeker.com/test/Special:CreatePage?type=walkthrough'),false);
+});
 test('główna mapa ponad artykułem jest zachowana w pełnej rozdzielczości',()=>{
  const html=`<main><div class="guide16-map-c"><figure><figcaption>Mapa świata</figcaption><picture><source srcset="/small.jpg"><img src="/small.jpg"></picture><a class="guide-map-2020-zoom" href="/static/mapy/full.jpg"></a></figure></div><h1>GreedFall: World Map</h1><div class="p-word"><p>${text}</p><div class="text-frame-red"><p>Ważne ostrzeżenie.</p></div><img src="/greedfall/gfx/word/quest.jpg"><section class="game2-obj-c">Rate It! Overview Review</section></div></main>`;
  const p=extract(html,'https://www.gamepressure.com/greedfall/world-map/z1');const q=cheerio.load(p.content);
@@ -38,6 +43,10 @@ test('robots.txt 403 nie blokuje publicznego obrazu; 429 i 500 zatrzymują pobie
   const engine=new Engine(()=>{},null,{fetcher:async()=>{throw new Error('HTTP '+status);},wait:async()=>{}});
   if(status<420)await engine.allowed('https://cdn.example.com/photo.jpg');else await assert.rejects(engine.allowed('https://cdn.example.com/photo.jpg'),/robots/);
  }
+});
+test('pobieranie ilustracji zachowuje jawne crawl-delay serwisu',async()=>{
+ const delays=[];const e=new Engine(()=>{},null,{fetcher:async()=>({data:Buffer.from('User-agent: *\nCrawl-delay: 3')}),wait:async ms=>delays.push(ms)});
+ await e.allowed('https://example.com/image.png',{media:true});assert.deepEqual(delays,[3000]);
 });
 test('leniwe filmy PowerPyx są linkami do wideo zamiast fałszywych ilustracji',()=>{
  const p=extract('<h1>Gra</h1><div class="entry-content"><p>'+text+'</p><img data-lazy-type="iframe" data-lazy-src="&lt;iframe src=&quot;//www.youtube.com/embed/abc&quot;&gt;&lt;/iframe&gt;"></div>','https://www.powerpyx.com/test-trophy-guide-roadmap/');

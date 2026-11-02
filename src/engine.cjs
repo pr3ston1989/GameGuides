@@ -24,7 +24,7 @@ class Engine {
   get signal(){return this.controller.signal;}
   snapshot(){return {version:2,extractorVersion:EXTRACTOR_VERSION,seed:this.seed,mode:this.mode,limit:this.limit,pending:[...this.pending],seen:[...this.seen],pages:[...this.pages],warnings:this.warnings,truncated:this.truncated,browser:!!this.reader};}
 
-  async allowed(url) {
+  async allowed(url,{media=false}={}) {
     const origin=new URL(url).origin;
     if(!this.robots.has(origin)) {
       let text='';
@@ -40,7 +40,7 @@ class Engine {
     const rules=this.robots.get(origin);
     if(rules.error)throw new Error(rules.error);
     if(rules.isAllowed(url,'GameGuides')===false) throw new Error('Pobieranie tego adresu jest wyłączone przez robots.txt.');
-    const delay=Math.max(1200,(rules.getCrawlDelay('GameGuides')||0)*1000);
+    const delay=Math.max(media?200:1200,(rules.getCrawlDelay('GameGuides')||0)*1000);
     if(delay>60000) throw new Error('Serwis wymaga odstępu ponad 60 sekund. Automatyczny eksport niedostępny.');
     await this.wait(delay,this.signal);
   }
@@ -131,7 +131,7 @@ class Engine {
           if(!cache.has(url)) {
             const options={signal:this.signal,maxBytes:5*1024*1024,referer:page.url};
             let r=this.fetcher.peek?await this.fetcher.peek(url,options):null;
-            if(!r){await this.allowed(url);r=await this.fetcher(url,options);}
+            if(!r){await this.allowed(url,{media:true});r=await this.fetcher(url,options);}
             const type=r.type.split(';')[0];
             if(!/^image\/(png|jpeg|webp|gif|avif|svg\+xml)$/.test(type)) throw new Error('Nieobsługiwany format ilustracji.');
             if(bytes+r.data.length>160*1024*1024) throw new Error('Osiągnięto limit 160 MB ilustracji.');
