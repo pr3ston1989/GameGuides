@@ -31,7 +31,7 @@ async function run([site,url,mode]){
   if(process.argv.includes('--fresh'))resume=null;
   const result=await engine.scan(url,{limit:3000,resume});
   const keys=result.pages.filter(p=>p.kind!=='index').map(p=>p.key);
-  const chapters=await engine.chapters(keys,true);
+  const chapters=await engine.chapters(keys,true,{assetDirectory:path.join(dir,'assets')});
   await fs.writeFile(path.join(dir,'chapters.json'),JSON.stringify(chapters));
   const printed=await printBook(bookHtml(chapters,{images:true,warnings:engine.warnings}),path.join(dir,'guide.pdf'));
   await fs.unlink(path.join(dir,'inspection.json')).catch(()=>{});

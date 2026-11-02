@@ -47,6 +47,7 @@ async function main({engineOptions={},saveDialog=(...args)=>dialog.showSaveDialo
     } finally {busy=false;}
   });
   ipcMain.handle('export',async(_e,args)=>{
+    let assetDirectory;
     if(busy||!engine||engine.signal.aborted)throw new Error('Przeanalizuj poradnik ponownie.');
     if(!Array.isArray(args.keys)||!args.keys.length||args.keys.some(k=>!engine.pages.has(k)))throw new Error('Wybierz poprawne rozdziały.');
     busy=true;
@@ -55,7 +56,8 @@ async function main({engineOptions={},saveDialog=(...args)=>dialog.showSaveDialo
       const filename=title.replace(/[<>:"/\\|?*\x00-\x1f]/g,'_').slice(0,120)||'Poradnik';
       const result=await saveDialog(win,{defaultPath:path.join(app.getPath('documents'),filename+'.pdf'),filters:[{name:'Poradnik PDF',extensions:['pdf']}]});
       if(result.canceled)return null;
-      const chapters=await engine.chapters(args.keys,!!args.images);
+      assetDirectory=await fs.mkdtemp(path.join(app.getPath('temp'),'gameguides-export-'));
+      const chapters=await engine.chapters(args.keys,!!args.images,{assetDirectory});
       if(engine.signal.aborted)throw new Error('Anulowano.');
       win.webContents.send('progress',{phase:'print',message:'Tworzenie pliku PDF…'});
       const layout={images:!!args.images,warnings:engine.warnings,title,fontSize:args.fontSize,paper:args.paper,landscape:!!args.landscape};
@@ -67,7 +69,10 @@ async function main({engineOptions={},saveDialog=(...args)=>dialog.showSaveDialo
       await fs.writeFile(result.filePath+'.report.json',JSON.stringify(report,null,2));lastFile=result.filePath;
       const items=(await history()).filter(item=>path.normalize(item.path).toLowerCase()!==path.normalize(lastFile).toLowerCase());items.unshift({title,path:lastFile,date:report.created,chapters:chapters.length});await fs.writeFile(historyFile(),JSON.stringify(items.slice(0,30)));
       return {path:lastFile,warnings:engine.warnings.length,chapters:chapters.length,illustrations:engine.media};
-    } finally {busy=false;}
+    } finally {
+      if(assetDirectory&&path.dirname(path.resolve(assetDirectory))===path.resolve(app.getPath('temp'))&&path.basename(assetDirectory).startsWith('gameguides-export-'))await fs.rm(assetDirectory,{recursive:true,force:true,maxRetries:10,retryDelay:100}).catch(()=>{});
+      busy=false;
+    }
   });
   await win.loadFile(path.join(__dirname,'ui/index.html'));
   win.on('closed',()=>{engine?.cancel();reader.close();});

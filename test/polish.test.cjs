@@ -3,6 +3,12 @@ const cheerio=require('cheerio');
 const {extract,EXTRACTOR_VERSION}=require('../src/extract.cjs');
 const {bookHtml}=require('../src/book.cjs');const {Engine}=require('../src/engine.cjs');
 const text='Właściwy opis zadania wraz z wyjaśnieniem kolejnych etapów. '.repeat(14);
+test('ekran Request blocked nie staje się rozdziałem, a kolejne blokady zatrzymują kolejkę',async()=>{
+ assert.throws(()=>extract('<h1>Request blocked</h1><main><p>This request matched one of the automated security rules.</p>'+text+'</main>','https://www.neoseeker.com/test/a'),/CAPTCHA/);
+ const seed='https://www.ign.com/wikis/test';let attempts=0;
+ const e=new Engine(()=>{},null,{fetcher:async url=>{attempts++;if(url!==seed)throw new Error('HTTP 429');return {url,type:'text/html',data:Buffer.from('<h1>Gra</h1><article><p>'+text+'</p>'+[1,2,3,4].map(n=>'<a href="'+seed+'/'+n+'">Misja '+n+'</a>').join('')+'</article>')};}});e.allowed=async()=>{};
+ const result=await e.scan(seed);assert.equal(attempts,4);assert(result.pending>0);assert.equal(result.pages.length,1);
+});
 test('IGN zachowuje rozdział zawierający wyłącznie film zamiast odrzucać go lub oznaczać jako indeks',()=>{
  const p=extract('<h1>Advanced chamber</h1><div class="wiki-page"><p>&lt;youtube&gt;<a href="https://www.youtube.com/watch?v=test">https://www.youtube.com/watch?v=test</a>&lt;/youtube&gt;</p><div><h3>Up Next: next chamber</h3>'+text+'</div></div>','https://www.ign.com/wikis/portal/Advanced');
  assert.equal(p.kind,'article');assert(p.content.includes('https://www.youtube.com/watch?v=test'));assert(!p.content.includes('&lt;youtube&gt;'));assert(p.quality.length);

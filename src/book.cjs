@@ -60,7 +60,7 @@ function bookHtml(chapters,{images=true,warnings=[],title=chapters[0]?.title||'P
   const edition=images?(imageCount?plural(imageCount,'ilustracja','ilustracje','ilustracji'):'Tekst i tabele'):'Wydanie tekstowe — ilustracje wyłączone';
   const notice=warnings.length?`<div class="notice"><b>Eksport z uwagami</b><p>${warnings.length} uwag lub braków. Szczegóły w raporcie JSON obok PDF.</p></div>`:'';
   return `<!doctype html><html lang="pl"><head><meta charset="utf-8"><title>${esc(title)} — GameGuides</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data: file:; style-src 'unsafe-inline'">
   <style>
   @page{size:${paper}${landscape?' landscape':''};margin:18mm 17mm 19mm}
   *{box-sizing:border-box}body{color:#22283a;font:${fontSize}pt/1.5 'Segoe UI',Arial,sans-serif;margin:0}

@@ -1,9 +1,11 @@
 const {download} = require('./network.cjs');
-const {extract,EXTRACTOR_VERSION} = require('./extract.cjs');
-const {normalize,adapter,belongs} = require('./sites.cjs');
+const {extract,assertAccessible,EXTRACTOR_VERSION} = require('./extract.cjs');
+const {normalize,adapter,belongs,isUtilityTitle} = require('./sites.cjs');
 const robotsParser = require('robots-parser');
 const cheerio = require('cheerio');
 const {createHash}=require('node:crypto');
+const fs=require('node:fs/promises'),path=require('node:path');
+const {pathToFileURL}=require('node:url');
 
 const pause = (ms,signal) => new Promise((resolve,reject) => {
   if(signal.aborted) return reject(new Error('Anulowano.'));
@@ -51,16 +53,17 @@ class Engine {
     this.pages.clear(); this.warnings=[]; this.truncated=false;
     this.pending=[this.seed]; this.seen=new Set(this.pending);
     if(resume && resume.seed===this.seed && resume.extractorVersion===EXTRACTOR_VERSION) {
-      this.pages=new Map(resume.pages.filter(([key])=>belongs(this.seed,key)));
-      this.pending=[...new Set(resume.pending.concat(resume.warnings.filter(w=>w.kind==='page').map(w=>w.url)))].filter(u=>belongs(this.seed,u));
+      const blocked=[];
+      this.pages=new Map(resume.pages.filter(([key,p])=>{if(!belongs(this.seed,key)||isUtilityTitle(adapter(this.seed).name,p.title))return false;try{assertAccessible(cheerio.load(p.content),p.title);return true;}catch{blocked.push(key);return false;}}));
+      this.pending=[...new Set(resume.pending.concat(blocked,resume.warnings.filter(w=>w.kind==='page').map(w=>w.url)))].filter(u=>belongs(this.seed,u));
       this.seen=new Set(resume.seen);
-      this.warnings=resume.warnings.filter(w=>!['limit','page'].includes(w.kind));
+      this.warnings=resume.warnings.filter(w=>!['limit','page'].includes(w.kind)&&!blocked.includes(w.url)&&belongs(this.seed,w.url));
     }else if(resume&&resume.seed===this.seed){
       this.progress({phase:'refresh',message:'Zapis pochodzi ze starszej wersji odczytu. Odświeżam źródła, aby odzyskać komplet treści i ilustracji.'});
       this.pending=mode==='single'?[this.seed]:[...new Set([this.seed,...(resume.pages||[]).map(([key])=>key),...(resume.pending||[])])].filter(u=>belongs(this.seed,u));
       this.seen=new Set(this.pending);
     }
-    let attempted=0;
+    let attempted=0,consecutiveBlocks=0;
     try {
       while(this.pending.length) {
         if(this.signal.aborted) throw new Error('Anulowano. Postęp został zachowany.');
@@ -70,6 +73,7 @@ class Engine {
         try {
           await this.allowed(url);
           const {response,page}=await this.loadPage(url);
+          consecutiveBlocks=0;
           const canonical=normalize(response.url);
           if(![...this.pages.values()].some(p=>normalize(p.url)===canonical)) {
             this.pages.set(url,page);
@@ -80,6 +84,8 @@ class Engine {
           if(this.signal.aborted) {this.pending.unshift(url);throw new Error('Anulowano. Postęp został zachowany.');}
           this.warnings.push({url,error:e.message,kind:'page'}); attempted++;
           if(url===this.seed&&!this.pages.size) throw e;
+          consecutiveBlocks=/HTTP (403|429)|CAPTCHA|blokadę/i.test(e.message)?consecutiveBlocks+1:0;
+          if(consecutiveBlocks>=3){this.pending.unshift(url);this.progress({phase:'blocked',message:'Serwis blokuje kolejne strony. Zachowano postęp; wznów po ustaniu blokady.'});break;}
         }
         if((this.pages.size+attempted)%10===0) await this.checkpoint(this.snapshot());
       }
@@ -111,8 +117,10 @@ class Engine {
     return {site:adapter(this.seed).name,pages,warnings:this.warnings,truncated:this.truncated,pending:this.pending.length,browser:!!this.reader};
   }
 
-  async chapters(keys,images) {
-    const chapters=[],cache=new Map(),duplicates=new Map(); let bytes=0;
+  async chapters(keys,images,{assetDirectory}={}) {
+    const chapters=[],cache=new Map(),duplicates=new Map(),animations=new Map(); let bytes=0;
+    const budgetMB=assetDirectory?512:160;
+    if(images&&assetDirectory)await fs.mkdir(assetDirectory,{recursive:true});
     this.media={requested:!!images,expected:0,embedded:0,failed:0,assets:[]};
     // Export warnings belong to this attempt, not previous exports.
     this.warnings=this.warnings.filter(w=>w.kind!=='image');
@@ -138,12 +146,27 @@ class Engine {
             const options={signal:this.signal,maxBytes:5*1024*1024,referer:page.url};
             let r=this.fetcher.peek?await this.fetcher.peek(url,options):null;
             if(!r){await this.allowed(url,{media:true});r=await this.fetcher(url,options);}
-            const type=r.type.split(';')[0];
+            let type=r.type.split(';')[0],data=r.data;
             if(!/^image\/(png|jpeg|webp|gif|avif|svg\+xml)$/.test(type)) throw new Error('Nieobsługiwany format ilustracji.');
-            if(bytes+r.data.length>160*1024*1024) throw new Error('Osiągnięto limit 160 MB ilustracji.');
-            bytes+=r.data.length;cache.set(url,`data:${type};base64,${r.data.toString('base64')}`);
+            if(assetDirectory&&type==='image/gif'){
+              const sharp=require('sharp'),metadata=await sharp(data).metadata();
+              animations.set(url,metadata.pages||1);
+              data=await sharp(data).webp({lossless:true}).toBuffer();type='image/webp';
+            }
+            if(bytes+data.length>budgetMB*1024*1024) throw new Error(`Osiągnięto limit ${budgetMB} MB ilustracji.`);
+            bytes+=data.length;
+            if(assetDirectory){
+              const extension=type==='image/svg+xml'?'svg':type.split('/')[1];
+              const asset=path.join(assetDirectory,createHash('sha256').update(data).digest('hex')+'.'+extension);
+              await fs.writeFile(asset,data);cache.set(url,pathToFileURL(asset).href);
+            }else cache.set(url,`data:${type};base64,${data.toString('base64')}`);
           }
           img.attr('src',cache.get(url)).attr('data-source',url);
+          if((animations.get(url)||0)>1){
+            asset.animationFrames=animations.get(url);asset.rendering='first-frame-with-source-link';
+            const figure=$('<figure>').append(img.clone()).append($('<figcaption>').text('Animacja: PDF pokazuje pierwszą klatkę. ').append($('<a>').attr('href',url).text('Otwórz pełną animację')));
+            const parent=img.parent();if(parent.is('a')&&!parent.text().trim()&&parent.find('img').length===1)parent.replaceWith(figure);else img.replaceWith(figure);
+          }
           asset.status='embedded';this.media.embedded++;
         } catch(e) {
           if(this.signal.aborted) throw new Error('Anulowano.');

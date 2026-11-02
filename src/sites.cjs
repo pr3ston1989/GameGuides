@@ -45,4 +45,7 @@ function belongs(seed, candidate) {
   if(s.slugPrefix) return p==='/'+scope+'/'||p.startsWith('/'+scope+'-');
   return p===scope || p.startsWith(scope.endsWith('/')?scope:scope+'/');
 }
-module.exports={sites,normalize,adapter,belongs};
+function isUtilityTitle(site,title=''){
+ return ['Game8','Samurai Gamers'].includes(site)&&/(?:^|[-–—]\s*)(?:Message Boards?|Discussion Board|Questions? Board|Spoilers\/Secrets Board|Suggestions Board|Chat Board|Bug Report Board)$/i.test(title.trim());
+}
+module.exports={sites,normalize,adapter,belongs,isUtilityTitle};

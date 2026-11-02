@@ -1,6 +1,6 @@
 const cheerio = require('cheerio');
 const sanitize = require('sanitize-html');
-const { adapter, belongs, normalize } = require('./sites.cjs');
+const { adapter, belongs, normalize,isUtilityTitle } = require('./sites.cjs');
 const EXTRACTOR_VERSION=3;
 
 const noise = [
@@ -40,7 +40,7 @@ function imageSource(img) {
 function assertAccessible($,title){
   const body=$('body').clone();body.find('script,style,noscript').remove();
   const visibleText=body.text().replace(/\s+/g,' ').trim();
-  if (/just a moment|access denied|verify you are human|attention required|enable javascript and cookies|^security check$|^checking (?:your )?browser/i.test(title) || (visibleText.length<1800&&/verify (?:that )?you are (?:a )?human|performing security verification|checking your browser before/i.test(visibleText))) {
+  if (/just a moment|access denied|verify you are human|attention required|enable javascript and cookies|^security check$|^request blocked$|^checking (?:your )?browser/i.test(title) || (visibleText.length<1800&&/verify (?:that )?you are (?:a )?human|performing security verification|checking your browser before|matched one of .{0,50}automated security rules/i.test(visibleText))) {
     throw new Error('Serwis wyświetla blokadę dostępu lub CAPTCHA.');
   }
 }
@@ -49,6 +49,7 @@ function extract(html, url, seed = url) {
   const $ = cheerio.load(html), site = adapter(seed);
   const title = firstText($, site.titleSelector || 'h1') || firstText($, 'title') || 'Poradnik';
   assertAccessible($,title);
+  if(isUtilityTitle(site.name,title))throw new Error('Adres prowadzi do forum społeczności, a nie rozdziału poradnika.');
   let base = url;
   try { base = normalize($('base[href]').first().attr('href'), url); } catch {}
   const links = [], seen = new Set();
@@ -57,6 +58,7 @@ function extract(html, url, seed = url) {
       const href = $(el).attr('href');
       if (href.startsWith('#')) return;
       const u = normalize(href, base), label = $(el).text().trim();
+      if(isUtilityTitle(site.name,label))return;
       if (label && belongs(seed, u) && !seen.has(u) && !/\.(?:jpg|png|pdf|zip|webp)$/i.test(new URL(u).pathname) && !/\/(?:topcontributors|edit|history)(?:\/|$)/.test(new URL(u).pathname)) {
         seen.add(u); links.push({ url: u, title: label.slice(0,220) });
       }

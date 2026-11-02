@@ -6,7 +6,14 @@ Aplikacja Windows do zapisywania poradników do gier w estetycznym PDF. Wklej li
 
 ## Pobieranie
 
-Pobierz instalator **GameGuides-1.2.0-Setup.exe** lub wersję **Portable.exe** z [najnowszego wydania](https://github.com/pr3ston1989/GameGuides/releases/latest). Windows 10/11 x64; Node.js nie jest wymagany. Instalator pozwala wybrać katalog i tworzy skróty. Wydanie nie ma komercyjnego podpisu cyfrowego.
+Lokalny instalator **GameGuides-1.2.1-Setup.exe** i wersja **GameGuides-1.2.1-Portable.exe** znajdują się po zbudowaniu w `dist/`. Opublikowane wersje są dostępne w [wydaniach projektu](https://github.com/pr3ston1989/GameGuides/releases/latest). Windows 10/11 x64; Node.js nie jest wymagany. Instalator pozwala wybrać katalog i tworzy skróty. Wydanie nie ma komercyjnego podpisu cyfrowego.
+
+## Co nowego w 1.2.1
+
+- Eksport przechowuje ilustracje w plikach tymczasowych zamiast rozbudowywać HTML danymi obrazów; budżet ilustracji w aplikacji wynosi 512 MB. Gotowy PDF zawiera obrazy i działa po usunięciu plików tymczasowych.
+- Animowane GIF-y mają w PDF pierwszą klatkę i odsyłacz do pełnej animacji.
+- Pobieranie zatrzymuje się po trzech kolejnych blokadach serwisu i zachowuje postęp do wznowienia. Wznowienie ponawia zapisane ekrany blokady i pomija strony techniczne.
+- Usuwanie plików tymczasowych ponawia próbę, gdy Windows chwilowo blokuje plik.
 
 ## Co nowego w 1.2
 
@@ -52,7 +59,7 @@ Wielostronicowe pobieranie: IGN, Gamepressure, GRYOnline, Neoseeker, StrategyWik
 
 „Cały poradnik” oznacza rozdziały znalezione przez dostępne linki w ustalonym zakresie gry. Strony niepodlinkowane, płatne, ukryte w niedostępnych menu lub blokowane mogą pozostać niewykryte. Pole `complete` w raporcie opisuje pobraną kolejkę i uwagi, a nie gwarantuje kompletności całego serwisu. Krótka strona startowa lub wpis społecznościowy może zawierać mało treści; program ostrzega o tym zamiast dopisywać tekst.
 
-Wideo jest zastępowane linkiem; mapy interaktywne wymagają strony źródłowej. Statyczne mapy są osadzane w PDF. Obrazy: maksymalnie 5 MB na plik i 160 MB na eksport. Obrazy wymagające cookies mogą być niedostępne, ponieważ pobiera je osobny klient HTTP. Każdy brak trafia do raportu obok PDF; raport zawiera też liczbę oczekiwanych, osadzonych i nieudanych ilustracji.
+Wideo jest zastępowane linkiem; mapy interaktywne wymagają strony źródłowej. Statyczne mapy są osadzane w PDF. Obrazy: maksymalnie 5 MB na plik i 512 MB na eksport w aplikacji (160 MB w pomocniczym trybie osadzania danych bezpośrednio w HTML). Obrazy wymagające cookies mogą być niedostępne, ponieważ pobiera je osobny klient HTTP. Każdy brak trafia do raportu obok PDF; raport zawiera też liczbę oczekiwanych, osadzonych i nieudanych ilustracji.
 
 ## Dane lokalne
 
