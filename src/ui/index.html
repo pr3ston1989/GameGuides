@@ -1,7 +1,34 @@
-<!doctype html><html lang="pl"><head><meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GameGuides</title><link rel="stylesheet" href="style.css"></head><body>
+<!doctype html>
+<html lang="pl">
+<head><meta charset="UTF-8"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; img-src 'self' data:"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GameGuides</title><link rel="stylesheet" href="style.css"></head>
+<body>
 <aside><div class="logo"><img src="../../assets/icon.svg" alt=""><span>GameGuides<small>TWÓJ ZAPIS GRY. OFFLINE.</small></span></div><div class="nav active">▤ &nbsp; Nowy poradnik</div><div class="aside-label">TWOJA BIBLIOTEKA</div><div id="history"></div><div class="aside-bottom"><span class="dot"></span> Lokalnie na Twoim komputerze<small>Bez konta. Bez wysyłania poradników.</small></div></aside>
-<main><header><span class="eyebrow">OD LINKU DO WŁASNEJ BIBLIOTEKI</span><span class="version">WINDOWS • v1.0</span></header><h1>Cały poradnik.<br><span>Gotowy na offline.</span></h1><p class="intro">Zachowaj solucje, sekrety i trofea w jednym, wygodnym PDF.</p>
-<section class="card"><div class="section-title"><span class="number">01</span><h2>Wklej link do poradnika</h2><span id="site" class="badge">Automatyczne rozpoznawanie</span></div><label for="url" class="sr">Adres poradnika</label><div class="url-row"><input id="url" type="url" placeholder="https://www.gamepressure.com/assassins-creed-valhalla/"><button id="scan">Znajdź rozdziały <span>→</span></button></div><div class="settings"><label>Zakres<select id="mode"><option value="guide">Cały poradnik</option><option value="single">Tylko podana strona</option></select></label><label>Limit stron<input id="limit" type="number" value="2000" min="1" max="5000"></label><label class="check"><input id="images" type="checkbox" checked> Dołącz ilustracje</label></div><div class="browser-row"><label class="check"><input id="browser" type="checkbox"> Odczyt w przeglądarce (JavaScript / logowanie)</label><button id="prepare" class="quiet">Otwórz stronę</button></div><p class="hint">Wybierz stronę główną poradnika, aby znaleźć jego rozdziały. Tryb uniwersalny zapisuje jedną stronę.</p></section>
-<section class="card chapters"><div class="section-title"><span class="number">02</span><h2>Ułóż swój PDF</h2><span id="count" class="badge">0 rozdziałów</span></div><div id="empty"><div class="book-symbol">▤</div><h3>Twoja następna przygoda zaczyna się tutaj</h3><p>Wklej link. Sprawdź rozdziały. Zapisz poradnik na później.</p></div><div id="selection" hidden><div class="list-toolbar"><label><input id="all" type="checkbox" checked> Zaznacz wszystkie</label><span>Kolejność według odkrywania linków</span></div><ol id="pages"></ol></div><div id="warnings" hidden></div><div class="status" role="status" aria-live="polite"><div class="status-line"><span id="status">Gotowy do nowej przygody</span><button id="cancel" class="quiet" hidden>Przerwij</button></div><progress id="progress" hidden></progress></div><div class="export-row"><div><b>Estetyczny PDF, bez reklam</b><small>Okładka · Spis treści · Źródła · Numeracja stron</small></div><button id="export" disabled>Zapisz PDF &nbsp; ↓</button></div><div id="result" hidden><span id="result-text"></span><button id="open" class="quiet">Otwórz PDF</button><button id="folder" class="quiet">Pokaż w folderze</button></div></section>
-<div class="sources-title">TWOJE ULUBIONE ŹRÓDŁA, W JEDNYM MIEJSCU</div><div id="sites" class="sources"></div><p class="footnote">Dostępność zależy od serwisu i publicznie dostępnej treści. Logowanie oraz CAPTCHA obsługujesz samodzielnie. Treści i prawa pozostają przy autorach.</p></main><script src="app.js"></script></body></html>
-
+<main>
+<header><span class="eyebrow">OD LINKU DO WŁASNEJ BIBLIOTEKI</span><span class="version">WINDOWS • v1.1</span></header>
+<h1>Cały poradnik.<br><span>Gotowy na offline.</span></h1><p class="intro">Zachowaj solucje, sekrety i trofea w jednym, wygodnym PDF.</p>
+<section class="card">
+  <div class="section-title"><span class="number">01</span><h2>Wklej link do poradnika</h2><span id="site" class="badge">Automatyczne rozpoznawanie</span></div>
+  <label for="url" class="sr">Adres poradnika</label><div class="url-row"><input id="url" type="url" placeholder="https://www.gamepressure.com/assassins-creed-valhalla/"><button id="scan">Znajdź rozdziały <span>→</span></button></div>
+  <div class="settings"><label>Zakres<select id="mode"><option value="guide">Cały poradnik</option><option value="single">Tylko podana strona</option></select></label><label>Limit stron<input id="limit" type="number" value="2000" min="1" max="5000"></label><label class="check"><input id="images" type="checkbox" checked> Dołącz ilustracje</label></div>
+  <div class="browser-row"><label class="check"><input id="browser" type="checkbox"> Odczyt w przeglądarce (JavaScript / logowanie)</label><button id="prepare" class="quiet">Otwórz stronę</button></div>
+  <label class="check hint"><input id="auto-browser" type="checkbox" checked> Automatycznie przełącz na przeglądarkę po odmowie dostępu</label>
+  <p class="hint">Duże poradniki pobieramy z odstępami. Postęp jest zapisywany co 10 stron i po przerwaniu.</p>
+  <div id="resume-box" hidden><span id="resume-text"></span><button id="resume" class="quiet">Wznów zapisany poradnik →</button></div>
+</section>
+<section class="card chapters">
+  <div class="section-title"><span class="number">02</span><h2>Ułóż swój PDF</h2><span id="count" class="badge">0 rozdziałów</span></div>
+  <div id="empty"><div class="book-symbol">▤</div><h3>Twoja następna przygoda zaczyna się tutaj</h3><p>Wklej link. Sprawdź rozdziały. Zapisz poradnik na później.</p></div>
+  <div id="selection" hidden>
+    <div class="list-toolbar"><label><input id="all" type="checkbox" checked> Zaznacz wszystkie</label><span>Kolejność odkrywania · strzałkami możesz ją zmienić</span></div>
+    <input id="filter" type="search" placeholder="Szukaj rozdziału po tytule lub adresie…" aria-label="Filtr rozdziałów"><ol id="pages"></ol>
+    <div class="pdf-settings"><label>Tytuł na okładce<input id="book-title" type="text" maxlength="200" placeholder="Tytuł poradnika"></label><div class="settings"><label>Papier<select id="paper"><option>A4</option><option>Letter</option></select></label><label>Tekst<select id="font-size"><option value="9">9 pkt</option><option value="11" selected>11 pkt</option><option value="13">13 pkt</option></select></label><label class="check"><input id="landscape" type="checkbox"> Układ poziomy (szerokie tabele)</label></div></div>
+  </div>
+  <div id="warnings" hidden></div>
+  <div class="status" role="status" aria-live="polite"><div class="status-line"><span id="status">Gotowy do nowej przygody</span><button id="cancel" class="quiet" hidden>Przerwij i zachowaj postęp</button></div><progress id="progress" hidden></progress></div>
+  <div class="export-row"><div><b>Estetyczny PDF, bez reklam</b><small>Okładka · Spis treści · Linki między rozdziałami · Źródła</small></div><button id="export" disabled>Zapisz PDF &nbsp; ↓</button></div>
+  <div id="result" hidden><span id="result-text"></span><button id="open" class="quiet">Otwórz PDF</button><button id="folder" class="quiet">Pokaż w folderze</button></div>
+</section>
+<details id="source-details"><summary>Serwisy i wyniki testów <span id="source-summary"></span></summary><p class="hint">„Sprawdzony” oznacza odczyt dwóch wylosowanych stron. Nie gwarantuje dostępu do wszystkich poradników. Kliknij serwis, aby wstawić testowany przykład.</p><div id="sites" class="source-grid"></div></details>
+<p class="footnote">Dostępność zależy od serwisu i publicznie dostępnej treści. Logowanie oraz CAPTCHA obsługujesz samodzielnie. Treści i prawa pozostają przy autorach.</p>
+</main><script src="app.js"></script>
+</body></html>

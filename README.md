@@ -1,66 +1,87 @@
 # GameGuides
 
-Samodzielna aplikacja Windows: wklej link do poradnika, wybierz rozdziały i zapisz estetyczny PDF. Polski interfejs, ciemny motyw, własna ikona, instalator i wersja portable.
+Aplikacja Windows do zapisywania poradników do gier w estetycznym PDF. Wklej link, wybierz rozdziały i zapisz książkę offline. Polski interfejs, własna ikona, instalator ze skrótem na pulpicie oraz wersja portable.
 
 ![Interfejs](docs/gui.png)
 
-## Instalacja
+## Pobieranie
 
-Pobierz **GameGuides-1.0.0-Setup.exe** z [Releases](https://github.com/pr3ston1989/GameGuides/releases). Instalator pozwala wybrać katalog i tworzy skróty na pulpicie oraz w menu Start. Nie wymaga Node.js ani osobnego silnika PDF. **Portable.exe** uruchamia aplikację bez instalacji. Wydanie nie ma komercyjnego podpisu cyfrowego.
+Pobierz instalator **GameGuides-1.1.0-Setup.exe** lub wersję **Portable.exe** z [najnowszego wydania](https://github.com/pr3ston1989/GameGuides/releases/latest). Windows 10/11 x64; Node.js nie jest wymagany. Instalator pozwala wybrać katalog i tworzy skróty. Wydanie nie ma komercyjnego podpisu cyfrowego.
 
-## Użycie
+## Co nowego w 1.1
 
-1. Wklej adres głównej strony poradnika.
-2. Wybierz „Cały poradnik” albo „Tylko podana strona”.
-3. Kliknij „Znajdź rozdziały”. Aplikacja pobiera strony kolejno, z odstępami; duże poradniki mogą wymagać kilkudziesięciu minut.
-4. Sprawdź listę. Odznacz niepotrzebne rozdziały i zmień ich kolejność strzałkami.
-5. Wybierz ilustracje i kliknij „Zapisz PDF”. Obok PDF powstanie raport `.pdf.report.json` z adresami źródeł i informacjami o błędach.
+- 20 adapterów i jawne wyniki weryfikacji: 16 serwisów sprawdzonych na dwóch wylosowanych stronach; 4 nadal ograniczone.
+- Automatyczne przełączenie na normalną przeglądarkę przy odmowie HTTP lub stronie wymagającej JavaScript.
+- Zapisywanie postępu, wznowienie po przerwaniu/limicie i ponowienie błędnych stron.
+- Filtr i zmiana kolejności rozdziałów, własny tytuł, A4/Letter, układ poziomy, tekst 9/11/13 pkt.
+- Odsyłacze pomiędzy pobranymi rozdziałami działają w PDF; identyfikatory sekcji nie kolidują.
+- Poprawki tabel Nintendo Life, treści Game8, obrazów IGN i pełnych opisów trofeów PlayStationTrophies.
+- Wykrywanie uszkodzonych obrazów i ekranów weryfikacji, lokalny cache obrazów, działająca historia eksportów.
 
-Limit wynosi domyślnie 2000 stron, maksymalnie 5000. Osiągnięcie limitu jest wyraźnie zgłaszane; zwiększ go i ponów analizę. „Cały poradnik” oznacza dostępne rozdziały znalezione przez linki w obrębie tej samej gry. Strony niepodlinkowane, ukryte w niedostępnych menu lub wymagające odrębnego dostępu mogą pozostać niewykryte. Raport nie gwarantuje kompletności względem całej witryny.
+## Jak używać
 
-## JavaScript, cookies i logowanie
+1. Wklej link do strony głównej poradnika lub konkretnego artykułu.
+2. Wybierz „Cały poradnik” lub „Tylko podana strona” i kliknij „Znajdź rozdziały”.
+3. Sprawdź listę, filtruj ją, odznacz zbędne strony i ustaw kolejność strzałkami.
+4. Ustaw tytuł, ilustracje i format papieru. Przy szerokich tabelach wybierz układ poziomy.
+5. Kliknij „Zapisz PDF”. Obok pliku powstanie raport `.pdf.report.json` z adresami źródeł i ewentualnymi brakami.
 
-Zaznacz „Odczyt w przeglądarce” i użyj „Otwórz stronę”. W osobnym oknie samodzielnie zaakceptuj cookies, zaloguj się lub rozwiąż wyświetloną weryfikację. Następnie uruchom analizę w głównym oknie. Aplikacja czyta wyrenderowany dokument i używa tej samej sesji do następnych stron. Przeglądarka nie gwarantuje usunięcia blokad serwisu. Nie automatyzuje CAPTCHA ani nie odblokowuje płatnych treści. Polityka robots.txt jest sprawdzana także w tym trybie.
+Duże poradniki pobierane są kolejno, z odstępami; mogą wymagać kilkudziesięciu minut. Postęp jest zapisywany co 10 stron i na koniec, także po anulowaniu. „Wznów” odtwarza gotowe rozdziały i ponawia nieudane strony. Nowa analiza zastępuje poprzednią zapisaną sesję. Limit domyślny: 2000 stron, maksymalnie 5000. Po osiągnięciu limitu zwiększ go i wznów.
 
-Sesja przeglądarki (w tym cookies logowania) i historia są lokalnie w katalogu danych użytkownika aplikacji. Aplikacja łączy się ze wskazanymi serwisami, a tryb przeglądarkowy uruchamia również ich zasoby i skrypty. Poradniki nie są wysyłane na serwer GameGuides. Ilustracje pobiera osobny klient HTTP; obrazy wymagające cookies mogą być niedostępne i trafią do raportu.
+## Sprawdzone źródła
 
-## Serwisy
+Zwykły HTTP: **IGN, PowerPyx, Gamepressure, GRYOnline, Gamer Guides, Samurai Gamers, Steam Community, Game8, Push Square, Nintendo Life, Eurogamer, GamesRadar+, PC Gamer**.
 
-| Serwis | Zakres | Weryfikacja |
-| --- | --- | --- |
-| IGN | `/wikis/nazwa-gry/…` | Odczyt Cyberpunk 2077 i odkrywanie linków sprawdzone na żywo |
-| PowerPyx | Podana strona | STEINS;GATE RE:BOOT sprawdzony na żywo |
-| Gamepressure | Wszystkie rozdziały w ścieżce gry | Strona główna Valhalli, rozdział Tips and tricks oraz odkrywanie linków sprawdzone na żywo |
-| PlayStationTrophies | `/game/nazwa-gry/…` | Adapter; przykład zwracał HTTP 403 |
-| Neoseeker | Ścieżka gry | Adapter, bez pełnego testu pobrania |
-| StrategyWiki | Gra oraz podstrony `/wiki/Gra/…` | Adapter; test zwracał HTTP 403 |
-| Samurai Gamers | Ścieżka gry | Adapter, bez pełnego testu pobrania |
-| Gamer Guides | Ścieżka gry i `/guide/…` | Adapter, bez pełnego testu pobrania |
-| TrueAchievements | Walkthrough danej gry | Adapter, bez pełnego testu pobrania |
-| GRYOnline | Ścieżka poradnika | Adapter, bez pełnego testu pobrania |
-| Steam Community | Pojedynczy poradnik | Adapter, bez pełnego testu pobrania |
-| GameFAQs | Pojedynczy poradnik | Adapter, bez pełnego testu pobrania |
-| Pozostałe | Pojedynczy artykuł | Uniwersalny odczyt `article`, `main`, `.entry-content`, `#content` |
+W przeglądarce: **PlayStationTrophies, Neoseeker, StrategyWiki**. Serwisy mogą zmieniać wymagania i czasowo blokować także ten tryb. W osobnym oknie możesz ręcznie zaakceptować cookies, zalogować się lub przejść weryfikację. Następnie użyj „Wznów”. Program nie automatyzuje CAPTCHA i nie odblokowuje płatnych treści. Sprawdza robots.txt także w trybie przeglądarkowym.
 
-Adaptery są heurystykami, zależą od układu HTML i dostępności strony. Nie oznaczają oficjalnej integracji. Materiały wideo i interaktywne mapy nie są osadzane w PDF. Ilustracje mają limit 5 MB na obraz i 160 MB łącznie. Zachowywane są źródła i informacje o autorach znajdujące się w treści. Korzystaj zgodnie z prawami do treści i zasadami wydawcy.
+Adaptery, których nie udało się zweryfikować z powodu odmów/błędów: **GameFAQs, PSNProfiles, TrueAchievements, RPG Site**. Interfejs oznacza je jako ograniczone.
 
-## Rozwój
+Każdy serwis sprawdzono na ograniczonej próbie, a nie na wszystkich poradnikach. Dokładne wylosowane adresy, gry, wyniki i ograniczenia są w [raporcie testów](docs/testing/REPORT.md). Testy obejmują również pełny poradnik GreedFall: **163 rozdziały, 425 stron PDF**, bez ilustracji.
 
-Node.js 24 LTS oraz Windows 10/11 x64:
+## Zakres i ograniczenia
+
+Wielostronicowe pobieranie: IGN, Gamepressure, GRYOnline, Neoseeker, StrategyWiki, Samurai Gamers, Gamer Guides, Game8, TrueAchievements. PowerPyx: główna strona trofeów i podstrony o wspólnym prefiksie gry. PlayStationTrophies: roadmap, wszystkie opisy trofeów i DLC na podanym adresie. Pozostałe serwisy: pojedynczy artykuł; nie łączymy automatycznie poradników do innych gier. Nieznane serwisy korzystają z uniwersalnego odczytu jednej strony.
+
+„Cały poradnik” oznacza rozdziały znalezione przez dostępne linki w ustalonym zakresie gry. Strony niepodlinkowane, płatne, ukryte w niedostępnych menu lub blokowane mogą pozostać niewykryte. Pole `complete` w raporcie opisuje pobraną kolejkę i uwagi, a nie gwarantuje kompletności całego serwisu. Krótka strona startowa lub wpis społecznościowy może zawierać mało treści; program ostrzega o tym zamiast dopisywać tekst.
+
+Wideo jest zastępowane linkiem; mapy interaktywne wymagają strony źródłowej. Obrazy: maksymalnie 5 MB na plik i 160 MB na eksport. Game8 podczas testu blokowało serwer ilustracji; tekst działał, a braki obrazów były raportowane. Obrazy wymagające cookies mogą być niedostępne, ponieważ pobiera je osobny klient HTTP.
+
+## Dane lokalne
+
+Historia, zapisana sesja pobierania, cookies przeglądarki i cache obrazów znajdują się w danych użytkownika GameGuides. Cache obrazów jest ważny przez 30 dni; przy starcie jest ograniczany do około 512 MB. Wznowienie używa już zapisanej treści; aby odświeżyć poradnik, rozpocznij nową analizę. Aplikacja łączy się bezpośrednio ze źródłami. Tryb przeglądarkowy wykonuje ich skrypty i ładuje ich zasoby. Nie ma serwera GameGuides otrzymującego poradniki.
+
+## Rozwój i testy
+
+Node.js 24 LTS, Windows x64:
 
 ```powershell
 npm ci
-npm run icons
 npm test
-npm start
+npm run test:ui
 npm run smoke
+npm start
 npm run build -- --publish never
 ```
 
-`npm run smoke` generuje `output/demo.pdf` i zrzut GUI. `node scripts/live-check.cjs` wykonuje jawne testy sieciowe trzech serwisów (bez pobierania całych poradników). Testy jednostkowe działają offline. Instalator i portable powstają w `dist/`. GitHub Actions buduje Windows; tag `v*` publikuje pliki w Releases.
+Testy jednostkowe i test GUI nie wymagają sieci. Test GUI eksportuje prawdziwe PDF, weryfikuje ich wymiary i linki, testuje przerwanie/wznowienie oraz uszkodzone obrazy. Smoke uruchamia prawdziwy punkt startowy aplikacji i generuje przykładowy PDF oraz zrzut GUI. Instalator i portable trafiają do `dist/`.
+
+Testy sieciowe i kontrola wizualna (wyniki w `output/`, nie są publikowane z kodem):
+
+```powershell
+npm run test:live
+npm run test:browser
+node scripts/recheck-samples.cjs
+npm run test:pdf
+npm run test:render
+npm run test:full
+node scripts/check-full-pdf.cjs
+node scripts/test-report.cjs
+```
+
+Rendering podglądów wymaga Popplera (`pdftoppm`). Zmienne `SAMPLE_SITES`, `BROWSER_SAMPLE_SITES` i `QA_SITES` pozwalają ograniczyć test do nazw serwisów rozdzielonych przecinkami. `SAMPLE_SEED` zmienia deterministyczne losowanie. Przeglądarkowy sampler domyślnie sprawdza StrategyWiki. GitHub Actions wykonuje testy jednostkowe, GUI i startu oraz buduje instalator; tagi `v*` publikują wydania.
 
 ## Architektura
 
-Electron renderuje GUI i drukuje oczyszczony dokument do PDF. Cheerio odczytuje strukturę treści, sanitize-html usuwa aktywne elementy. Proces głównego GUI nie wykonuje zewnętrznych skryptów. Opcjonalny czytnik ma osobną sesję, izolację, brak Node.js, blokadę uprawnień, pobierania plików i nowych okien. Pobieranie HTTP weryfikuje publiczne adresy IP oraz przekierowania i przypina DNS do żądania. PDF nie pobiera zewnętrznych zasobów; obrazy są osadzone lokalnie.
+Electron, Cheerio i sanitize-html. Główne GUI ma izolację i nie wykonuje skryptów źródłowych. Czytnik ma osobną sesję, brak Node.js, blokadę uprawnień, pobierania plików i nowych okien. Klient HTTP sprawdza publiczne IP, przekierowania i przypina DNS do żądania. PDF ma CSP blokującą skrypty i zasoby sieciowe; obrazy są osadzane w dokumencie. W Windows wyłączono akcelerację sprzętową po wykryciu błędu renderowania podczas testów.
 
-Kod aplikacji: MIT. Treści poradników i znaki serwisów pozostają własnością ich autorów.
+Kod: MIT. Poradniki i znaki serwisów należą do ich autorów; eksport zachowuje linki źródłowe i nie przenosi praw do treści.

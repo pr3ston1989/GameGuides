@@ -1,0 +1,162 @@
+{
+  "Eurogamer": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.eurogamer.net/the-blood-of-dawnwalker-best-route-walkthrough",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "Game8": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://game8.co/games/Elden-Ring/archives/378552",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. Serwer ilustracji blokuje automatyczny dostęp."
+  },
+  "GameFAQs": {
+    "status": "restricted",
+    "mode": "http",
+    "sampleCount": 0,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://gamefaqs.gamespot.com/ps5/323053-elden-ring/faqs",
+    "note": "HTTP 403: serwis odmówił dostępu lub strona nie istnieje."
+  },
+  "Gamepressure": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.gamepressure.com/greedfall/",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "Gamer Guides": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.gamerguides.com/the-witcher-3-wild-hunt/guide/gwent/card-locations/gwent-in-novigrad",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "GamesRadar+": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.gamesradar.com/games/strategy/anime-galaxies-codes/",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "GRYOnline": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.gry-online.pl/poradniki/assassins-creed-black-flag-resynced/",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "IGN": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.ign.com/wikis/elden-ring/Ronin%27s_Set",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "Neoseeker": {
+    "status": "verified",
+    "mode": "browser",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.neoseeker.com/clair-obscur-expedition-33/Pinabby",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. Wymagana przeglądarka. "
+  },
+  "Nintendo Life": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.nintendolife.com/guides/hyrule-warriors-age-of-imprisonment-all-playable-characters-and-how-to-unlock-them",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "PC Gamer": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.pcgamer.com/games/survival-crafting/subnautica-2-guide/",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "PlayStationTrophies": {
+    "status": "verified",
+    "mode": "browser",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.playstationtrophies.org/game/project-007-working-title/guide/",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. Wymagana przeglądarka. "
+  },
+  "PowerPyx": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.powerpyx.com/red-dead-redemption-1-ps5-ps4-trophy-guide-roadmap/",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "PSNProfiles": {
+    "status": "restricted",
+    "mode": "http",
+    "sampleCount": 0,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://psnprofiles.com/guides",
+    "note": "HTTP 403: serwis odmówił dostępu lub strona nie istnieje."
+  },
+  "Push Square": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.pushsquare.com/guides/stellar-blade-spire-4-walkthrough-cans-design-patterns-beta-cores-body-cores-exospines-passcodes-camps",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "RPG Site": {
+    "status": "restricted",
+    "mode": "http",
+    "sampleCount": 0,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.rpgsite.net/category/guides",
+    "note": "Nie można sprawdzić robots.txt: HTTP 500: serwis odmówił dostępu lub strona nie istnieje."
+  },
+  "Samurai Gamers": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://samurai-gamers.com/dragon-quest-3-remake/dq3re-slime-earrings-accessory-guide/",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. "
+  },
+  "Steam Community": {
+    "status": "verified",
+    "mode": "http",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://steamcommunity.com/sharedfiles/filedetails/?id=2804069465",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. Jedna próbka zawiera bardzo krótką treść. "
+  },
+  "StrategyWiki": {
+    "status": "verified",
+    "mode": "browser",
+    "sampleCount": 2,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://strategywiki.org/wiki/Tetris",
+    "note": "Odczyt dwóch wylosowanych stron sprawdzony 2 listopada 2026. Wymagana przeglądarka. Jedna próbka zawiera bardzo krótką treść. "
+  },
+  "TrueAchievements": {
+    "status": "restricted",
+    "mode": "http",
+    "sampleCount": 0,
+    "testedAt": "2026-11-02T09:50:43.663Z",
+    "example": "https://www.trueachievements.com/walkthroughs.aspx",
+    "note": "Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje."
+  }
+}

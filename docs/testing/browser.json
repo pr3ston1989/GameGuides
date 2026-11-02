@@ -1,0 +1,47 @@
+{
+  "created": "2026-11-02T09:42:47.124Z",
+  "results": [
+    {
+      "site": "PlayStationTrophies",
+      "url": "https://www.playstationtrophies.org/game/mafia-3/guide/",
+      "ok": true,
+      "pages": [
+        {
+          "key": "https://www.playstationtrophies.org/game/mafia-3/guide/",
+          "title": "Mafia III: Definitive Edition Trophy Guide",
+          "url": "https://www.playstationtrophies.org/game/mafia-3/guide/",
+          "words": 2378
+        }
+      ],
+      "screenshotError": "UnknownVizError"
+    },
+    {
+      "site": "Neoseeker",
+      "url": "https://www.neoseeker.com/clair-obscur-expedition-33/walkthrough",
+      "ok": true,
+      "pages": [
+        {
+          "key": "https://www.neoseeker.com/clair-obscur-expedition-33/walkthrough",
+          "title": "Clair Obscur: Expedition 33 Walkthrough and Guide",
+          "url": "https://www.neoseeker.com/clair-obscur-expedition-33/walkthrough",
+          "words": 834
+        }
+      ],
+      "screenshotError": "UnknownVizError"
+    },
+    {
+      "site": "StrategyWiki",
+      "url": "https://strategywiki.org/wiki/Chrono_Trigger",
+      "ok": true,
+      "pages": [
+        {
+          "key": "https://strategywiki.org/wiki/Chrono_Trigger",
+          "title": "Chrono Trigger",
+          "url": "https://strategywiki.org/wiki/Chrono_Trigger",
+          "words": 1093
+        }
+      ],
+      "screenshotError": "UnknownVizError"
+    }
+  ]
+}

@@ -1,0 +1,601 @@
+[
+  {
+    "site": "Gamepressure",
+    "url": "https://www.gamepressure.com/greedfall/",
+    "file": "Gamepressure-0.pdf",
+    "words": 2739,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 12,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 17,
+    "brokenLinks": []
+  },
+  {
+    "site": "Game8",
+    "url": "https://game8.co/games/Elden-Ring/archives/378552",
+    "file": "Game8-0.pdf",
+    "words": 1409,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 11,
+    "tokenCoverage": 0.9889,
+    "missingTokens": [
+      "reaper",
+      "twinblade",
+      "greataxe",
+      "halberd"
+    ],
+    "overflow": [],
+    "internalLinks": 4,
+    "brokenLinks": []
+  },
+  {
+    "site": "Gamepressure",
+    "url": "https://www.gamepressure.com/clair-obscur-expedition-33/",
+    "file": "Gamepressure-1.pdf",
+    "words": 2071,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 8,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 13,
+    "brokenLinks": []
+  },
+  {
+    "site": "Game8",
+    "url": "https://game8.co/games/Elden-Ring/archives/370519",
+    "file": "Game8-1.pdf",
+    "words": 337,
+    "images": true,
+    "warnings": [
+      {
+        "url": "https://img.game8.co/3495189/742df9c400670be1f7a0a75b31ff06e0.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3494236/4517e5ee0fcad36ca527694f86392125.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910275/0bb44fa31c5ac9fc13d3ed53be9544ad.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910453/2a3e39f57098ef71acfb4a32c90a33a9.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3911563/4bc34f509f8b093c5575fef2ce4bc0cf.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910284/05344e4e0a4d5fd8d6f093e2f316fa74.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910257/5ed0af1291d1ae42be189955d966d29b.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910265/405a3984639695eb23219d8d87607fd7.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910244/696d1239caa9e8d69e741285d14a1da6.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910295/f1416b905ce2c274a41fabcc2f6190db.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910276/1043ed4b91f0b33365df41163b7eeb1b.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910312/76fde6e7d9f05525f633edfc7322ee62.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910267/c86b0c36bf9ba16b85857a6d950cd696.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910279/ac08659f9639831f790c7a2900c94ed8.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910235/d038c9d8131e7e0680fe78702a9782b7.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910275/0bb44fa31c5ac9fc13d3ed53be9544ad.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      },
+      {
+        "url": "https://img.game8.co/3910255/dea10c4e0cb335a824f3227e354adf07.png/show",
+        "error": "Ilustracja: Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+        "kind": "image"
+      }
+    ],
+    "ok": true,
+    "pdfPages": 5,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 5,
+    "brokenLinks": []
+  },
+  {
+    "site": "Gamer Guides",
+    "url": "https://www.gamerguides.com/the-witcher-3-wild-hunt/guide/gwent/card-locations/gwent-in-novigrad",
+    "file": "Gamer-Guides-0.pdf",
+    "words": 2378,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 10,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 21,
+    "brokenLinks": []
+  },
+  {
+    "site": "GRYOnline",
+    "url": "https://www.gry-online.pl/poradniki/assassins-creed-black-flag-resynced/",
+    "file": "GRYOnline-0.pdf",
+    "words": 1583,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 8,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 9,
+    "brokenLinks": []
+  },
+  {
+    "site": "GRYOnline",
+    "url": "https://www.gry-online.pl/poradniki/indiana-jones-and-the-great-circle/",
+    "file": "GRYOnline-1.pdf",
+    "words": 2355,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 10,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 13,
+    "brokenLinks": []
+  },
+  {
+    "site": "IGN",
+    "url": "https://www.ign.com/wikis/elden-ring/Ronin%27s_Set",
+    "file": "IGN-0.pdf",
+    "words": 136,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 4,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "GamesRadar+",
+    "url": "https://www.gamesradar.com/games/strategy/anime-galaxies-codes/",
+    "file": "GamesRadar--0.pdf",
+    "words": 507,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 5,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "IGN",
+    "url": "https://www.ign.com/wikis/elden-ring/Monk%27s_Flamemace",
+    "file": "IGN-1.pdf",
+    "words": 309,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 4,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "GamesRadar+",
+    "url": "https://www.gamesradar.com/games/strategy/anime-expeditions-codes/",
+    "file": "GamesRadar--1.pdf",
+    "words": 565,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 4,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Nintendo Life",
+    "url": "https://www.nintendolife.com/guides/hyrule-warriors-age-of-imprisonment-all-playable-characters-and-how-to-unlock-them",
+    "file": "Nintendo-Life-0.pdf",
+    "words": 1127,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 8,
+    "tokenCoverage": 0.9956,
+    "missingTokens": [
+      "youtube",
+      "854k"
+    ],
+    "overflow": [],
+    "internalLinks": 9,
+    "brokenLinks": []
+  },
+  {
+    "site": "PC Gamer",
+    "url": "https://www.pcgamer.com/games/survival-crafting/subnautica-2-guide/",
+    "file": "PC-Gamer-0.pdf",
+    "words": 1184,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 7,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "PC Gamer",
+    "url": "https://www.pcgamer.com/games/roblox/blue-lock-rivals-codes/",
+    "file": "PC-Gamer-1.pdf",
+    "words": 772,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 6,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Nintendo Life",
+    "url": "https://www.nintendolife.com/guides/pokemon-legends-z-a-pokedex-all-lumiose-pokemon-locations-and-evolutions",
+    "file": "Nintendo-Life-1.pdf",
+    "words": 1408,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 18,
+    "tokenCoverage": 0.9972,
+    "missingTokens": [
+      "youtube",
+      "854k"
+    ],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Push Square",
+    "url": "https://www.pushsquare.com/guides/stellar-blade-spire-4-walkthrough-cans-design-patterns-beta-cores-body-cores-exospines-passcodes-camps",
+    "file": "Push-Square-0.pdf",
+    "words": 1517,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 9,
+    "tokenCoverage": 0.9952,
+    "missingTokens": [
+      "youtube",
+      "172k"
+    ],
+    "overflow": [],
+    "internalLinks": 2,
+    "brokenLinks": []
+  },
+  {
+    "site": "Gamer Guides",
+    "url": "https://www.gamerguides.com/assassins-creed-valhalla/guide/settlement/settlement-guide/settlement-levels-and-buildings",
+    "file": "Gamer-Guides-1.pdf",
+    "words": 2962,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 15,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 46,
+    "brokenLinks": []
+  },
+  {
+    "site": "Samurai Gamers",
+    "url": "https://samurai-gamers.com/dragon-quest-3-remake/dq3re-slime-earrings-accessory-guide/",
+    "file": "Samurai-Gamers-0.pdf",
+    "words": 582,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 7,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Samurai Gamers",
+    "url": "https://samurai-gamers.com/metaphor-refantazio/metaphor-does-demo-progress-carry-over/",
+    "file": "Samurai-Gamers-1.pdf",
+    "words": 282,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 5,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Push Square",
+    "url": "https://www.pushsquare.com/guides/stellar-blade-all-butterflies-in-the-wasteland-locations",
+    "file": "Push-Square-1.pdf",
+    "words": 416,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 14,
+    "tokenCoverage": 0.9891,
+    "missingTokens": [
+      "youtube",
+      "172k"
+    ],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "PowerPyx",
+    "url": "https://www.powerpyx.com/red-dead-redemption-1-ps5-ps4-trophy-guide-roadmap/",
+    "file": "PowerPyx-0.pdf",
+    "words": 8461,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 38,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 23,
+    "brokenLinks": []
+  },
+  {
+    "site": "PowerPyx",
+    "url": "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/",
+    "file": "PowerPyx-1.pdf",
+    "words": 10185,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 25,
+    "tokenCoverage": 0.9994,
+    "missingTokens": [
+      "prev"
+    ],
+    "overflow": [],
+    "internalLinks": 27,
+    "brokenLinks": []
+  },
+  {
+    "site": "Eurogamer",
+    "url": "https://www.eurogamer.net/the-blood-of-dawnwalker-best-route-walkthrough",
+    "file": "Eurogamer-0.pdf",
+    "words": 1857,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 10,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Eurogamer",
+    "url": "https://www.eurogamer.net/control-resonant-the-last-taxi-locations-puzzle-solutions",
+    "file": "Eurogamer-1.pdf",
+    "words": 2031,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 8,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 3,
+    "brokenLinks": []
+  },
+  {
+    "site": "Steam Community",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2804069465",
+    "file": "Steam-Community-0.pdf",
+    "words": 223,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 4,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Steam Community",
+    "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3831381063",
+    "file": "Steam-Community-1.pdf",
+    "words": 13,
+    "images": true,
+    "warnings": [
+      {
+        "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3831381063",
+        "error": "Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik.",
+        "kind": "quality"
+      }
+    ],
+    "ok": true,
+    "pdfPages": 3,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "StrategyWiki",
+    "url": "https://strategywiki.org/wiki/Tetris",
+    "file": "StrategyWiki-0.pdf",
+    "words": 486,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 5,
+    "tokenCoverage": 0.9965,
+    "missingTokens": [
+      "те"
+    ],
+    "overflow": [],
+    "internalLinks": 2,
+    "brokenLinks": []
+  },
+  {
+    "site": "StrategyWiki",
+    "url": "https://strategywiki.org/wiki/ARMS",
+    "file": "StrategyWiki-1.pdf",
+    "words": 38,
+    "images": false,
+    "warnings": [
+      {
+        "url": "https://strategywiki.org/wiki/ARMS",
+        "error": "Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik.",
+        "kind": "quality"
+      }
+    ],
+    "ok": true,
+    "pdfPages": 4,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 2,
+    "brokenLinks": []
+  },
+  {
+    "site": "Neoseeker",
+    "url": "https://www.neoseeker.com/clair-obscur-expedition-33/Pinabby",
+    "file": "Neoseeker-0.pdf",
+    "words": 88,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 4,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "Neoseeker",
+    "url": "https://www.neoseeker.com/clair-obscur-expedition-33/Grosse_Tete",
+    "file": "Neoseeker-1.pdf",
+    "words": 428,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 4,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  },
+  {
+    "site": "PlayStationTrophies",
+    "url": "https://www.playstationtrophies.org/game/project-007-working-title/guide/",
+    "file": "PlayStationTrophies-0.pdf",
+    "words": 4958,
+    "images": true,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 19,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 87,
+    "brokenLinks": []
+  },
+  {
+    "site": "PlayStationTrophies",
+    "url": "https://www.playstationtrophies.org/game/mafia-3/guide/",
+    "file": "PlayStationTrophies-1.pdf",
+    "words": 12365,
+    "images": false,
+    "warnings": [],
+    "ok": true,
+    "pdfPages": 44,
+    "tokenCoverage": 1,
+    "missingTokens": [],
+    "overflow": [],
+    "internalLinks": 1,
+    "brokenLinks": []
+  }
+]

@@ -1,0 +1,674 @@
+{
+  "created": "2026-11-02T09:50:43.663Z",
+  "method": "Dwa adresy na serwis z katalogu; deterministyczny ranking SHA-256(seed + URL), bez wymiany nieudanych próbek. Poprawiono adresy czterech katalogów i udokumentowano ponowne losowanie.",
+  "results": [
+    {
+      "name": "Eurogamer",
+      "catalogue": "https://www.eurogamer.net/guides",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 18,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.eurogamer.net/the-blood-of-dawnwalker-best-route-walkthrough",
+          "status": "ok",
+          "title": "The Blood of Dawnwalker best route walkthrough",
+          "words": 1857,
+          "links": 1,
+          "images": 3,
+          "tables": 3,
+          "headings": 1,
+          "linkDensity": 0.02,
+          "elapsedMs": 1594,
+          "previousWords": 1901,
+          "quality": [],
+          "selector": ".article_body_content"
+        },
+        {
+          "url": "https://www.eurogamer.net/control-resonant-the-last-taxi-locations-puzzle-solutions",
+          "status": "ok",
+          "title": "Control Resonant The Last Taxi walkthrough",
+          "words": 2031,
+          "links": 1,
+          "images": 28,
+          "tables": 0,
+          "headings": 16,
+          "linkDensity": 0.01,
+          "elapsedMs": 1305,
+          "previousWords": 2064,
+          "quality": [],
+          "selector": ".article_body_content"
+        }
+      ]
+    },
+    {
+      "name": "Game8",
+      "catalogue": "https://game8.co/games/Elden-Ring",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 679,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://game8.co/games/Elden-Ring/archives/378552",
+          "status": "ok",
+          "title": "All Dexterity (Dex) Weapons List | Elden Ring｜Game8",
+          "words": 1409,
+          "links": 1,
+          "images": 82,
+          "tables": 9,
+          "headings": 10,
+          "linkDensity": 0,
+          "elapsedMs": 1949,
+          "previousWords": 349,
+          "quality": [],
+          "selector": ".archive-style-wrapper"
+        },
+        {
+          "url": "https://game8.co/games/Elden-Ring/archives/370519",
+          "status": "ok",
+          "title": "Parry Ash of War Location and Effect | Elden Ring｜Game8",
+          "words": 337,
+          "links": 1,
+          "images": 17,
+          "tables": 5,
+          "headings": 9,
+          "linkDensity": 0,
+          "elapsedMs": 2417,
+          "previousWords": 349,
+          "quality": [],
+          "selector": ".archive-style-wrapper"
+        }
+      ]
+    },
+    {
+      "name": "GameFAQs",
+      "catalogue": "https://gamefaqs.gamespot.com/ps5/323053-elden-ring/faqs",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 0,
+      "catalogError": "HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+      "samples": []
+    },
+    {
+      "name": "Gamepressure",
+      "catalogue": "https://www.gamepressure.com/guides/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 31,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.gamepressure.com/greedfall/",
+          "status": "ok",
+          "title": "GreedFall Guide",
+          "words": 2739,
+          "links": 163,
+          "images": 0,
+          "tables": 0,
+          "headings": 16,
+          "linkDensity": 0.2,
+          "elapsedMs": 1535,
+          "previousWords": 2919,
+          "quality": [],
+          "selector": ".p-word"
+        },
+        {
+          "url": "https://www.gamepressure.com/clair-obscur-expedition-33/",
+          "status": "ok",
+          "title": "Expedition 33 Guide",
+          "words": 2071,
+          "links": 81,
+          "images": 0,
+          "tables": 0,
+          "headings": 12,
+          "linkDensity": 0.49,
+          "elapsedMs": 1462,
+          "previousWords": 2298,
+          "quality": [],
+          "selector": ".p-word"
+        }
+      ]
+    },
+    {
+      "name": "Gamer Guides",
+      "catalogue": "https://www.gamerguides.com/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 33,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.gamerguides.com/the-witcher-3-wild-hunt/guide/gwent/card-locations/gwent-in-novigrad",
+          "status": "ok",
+          "title": "Gwent in Novigrad",
+          "words": 2378,
+          "links": 355,
+          "images": 113,
+          "tables": 6,
+          "headings": 12,
+          "linkDensity": 0.18,
+          "elapsedMs": 1559,
+          "previousWords": 2478,
+          "quality": [],
+          "selector": ".guide-page-content-body"
+        },
+        {
+          "url": "https://www.gamerguides.com/assassins-creed-valhalla/guide/settlement/settlement-guide/settlement-levels-and-buildings",
+          "status": "ok",
+          "title": "Settlement Levels & Buildings",
+          "words": 2962,
+          "links": 1426,
+          "images": 9,
+          "tables": 0,
+          "headings": 39,
+          "linkDensity": 0.07,
+          "elapsedMs": 1685,
+          "previousWords": 3136,
+          "quality": [],
+          "selector": ".guide-page-content-body"
+        }
+      ]
+    },
+    {
+      "name": "GamesRadar+",
+      "catalogue": "https://www.gamesradar.com/guides/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 21,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.gamesradar.com/games/strategy/anime-galaxies-codes/",
+          "status": "ok",
+          "title": "Anime Galaxies codes (October 2026) for Gems, Trait Crystals, and more",
+          "words": 507,
+          "links": 1,
+          "images": 2,
+          "tables": 0,
+          "headings": 3,
+          "linkDensity": 0.12,
+          "elapsedMs": 1509,
+          "previousWords": 772,
+          "quality": [],
+          "selector": "#article-body"
+        },
+        {
+          "url": "https://www.gamesradar.com/games/strategy/anime-expeditions-codes/",
+          "status": "ok",
+          "title": "Anime Expeditions codes (October 2026) for free rerolls, gems, and more",
+          "words": 565,
+          "links": 1,
+          "images": 2,
+          "tables": 0,
+          "headings": 3,
+          "linkDensity": 0.11,
+          "elapsedMs": 1425,
+          "previousWords": 821,
+          "quality": [],
+          "selector": "#article-body"
+        }
+      ]
+    },
+    {
+      "name": "GRYOnline",
+      "catalogue": "https://www.gry-online.pl/poradniki/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 48,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.gry-online.pl/poradniki/assassins-creed-black-flag-resynced/",
+          "status": "ok",
+          "title": "AC Black Flag Resynced - poradnik do gry",
+          "words": 1583,
+          "links": 67,
+          "images": 0,
+          "tables": 0,
+          "headings": 8,
+          "linkDensity": 0.56,
+          "elapsedMs": 1609,
+          "previousWords": 2114,
+          "quality": [],
+          "selector": ".p-word"
+        },
+        {
+          "url": "https://www.gry-online.pl/poradniki/indiana-jones-and-the-great-circle/",
+          "status": "ok",
+          "title": "Indiana Jones Great Circle - poradnik do gry",
+          "words": 2355,
+          "links": 73,
+          "images": 0,
+          "tables": 0,
+          "headings": 12,
+          "linkDensity": 0.17,
+          "elapsedMs": 1568,
+          "previousWords": 2799,
+          "quality": [],
+          "selector": ".p-word"
+        }
+      ]
+    },
+    {
+      "name": "IGN",
+      "catalogue": "https://www.ign.com/wikis/elden-ring",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 1965,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.ign.com/wikis/elden-ring/Ronin%27s_Set",
+          "status": "ok",
+          "title": "Ronin's Set",
+          "words": 136,
+          "links": 1956,
+          "images": 1,
+          "tables": 1,
+          "headings": 2,
+          "linkDensity": 0.28,
+          "elapsedMs": 3113,
+          "previousWords": 178,
+          "quality": [],
+          "selector": ".wiki-page"
+        },
+        {
+          "url": "https://www.ign.com/wikis/elden-ring/Monk%27s_Flamemace",
+          "status": "ok",
+          "title": "Monk's Flamemace",
+          "words": 309,
+          "links": 1956,
+          "images": 2,
+          "tables": 1,
+          "headings": 4,
+          "linkDensity": 0.13,
+          "elapsedMs": 2885,
+          "previousWords": 349,
+          "quality": [],
+          "selector": ".wiki-page"
+        }
+      ]
+    },
+    {
+      "name": "Neoseeker",
+      "catalogue": "https://www.neoseeker.com/clair-obscur-expedition-33/walkthrough",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "browser",
+      "candidateCount": 229,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.neoseeker.com/clair-obscur-expedition-33/Pinabby",
+          "status": "ok",
+          "mode": "browser",
+          "title": "Pinabby",
+          "words": 88,
+          "images": 1,
+          "tables": 1,
+          "headings": 0,
+          "quality": [],
+          "previousWords": 88,
+          "selector": "#wiki-content"
+        },
+        {
+          "url": "https://www.neoseeker.com/clair-obscur-expedition-33/Grosse_Tete",
+          "status": "ok",
+          "mode": "browser",
+          "title": "Boss: Grosse Tète",
+          "words": 428,
+          "images": 1,
+          "tables": 0,
+          "headings": 0,
+          "quality": [],
+          "previousWords": 428,
+          "selector": "#wiki-content"
+        }
+      ]
+    },
+    {
+      "name": "Nintendo Life",
+      "catalogue": "https://www.nintendolife.com/guides",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 119,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.nintendolife.com/guides/hyrule-warriors-age-of-imprisonment-all-playable-characters-and-how-to-unlock-them",
+          "status": "ok",
+          "title": "Hyrule Warriors: Age Of Imprisonment: All Playable Characters & How To Unlock Them",
+          "words": 1127,
+          "links": 1,
+          "images": 28,
+          "tables": 0,
+          "headings": 28,
+          "linkDensity": 0.03,
+          "elapsedMs": 5221,
+          "previousWords": 1134,
+          "quality": [],
+          "selector": ".article-text"
+        },
+        {
+          "url": "https://www.nintendolife.com/guides/pokemon-legends-z-a-pokedex-all-lumiose-pokemon-locations-and-evolutions",
+          "status": "ok",
+          "title": "Pokémon Legends: Z-A: Pokédex - All Lumiose Pokémon Locations & Evolutions",
+          "words": 1408,
+          "links": 1,
+          "images": 5,
+          "tables": 1,
+          "headings": 1,
+          "linkDensity": 0.2,
+          "elapsedMs": 5168,
+          "previousWords": 195,
+          "quality": [],
+          "selector": ".article-text"
+        }
+      ]
+    },
+    {
+      "name": "PC Gamer",
+      "catalogue": "https://www.pcgamer.com/guides/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 37,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.pcgamer.com/games/survival-crafting/subnautica-2-guide/",
+          "status": "ok",
+          "title": "My full guide to Subnautica 2 after surviving the perils of an alien water planet",
+          "words": 1184,
+          "links": 1,
+          "images": 22,
+          "tables": 0,
+          "headings": 17,
+          "linkDensity": 0.18,
+          "elapsedMs": 1427,
+          "previousWords": 1512,
+          "quality": [],
+          "selector": "#article-body"
+        },
+        {
+          "url": "https://www.pcgamer.com/games/roblox/blue-lock-rivals-codes/",
+          "status": "ok",
+          "title": "All active Blue Lock Rivals codes in November 2026 and how to redeem them",
+          "words": 772,
+          "links": 1,
+          "images": 1,
+          "tables": 0,
+          "headings": 3,
+          "linkDensity": 0.11,
+          "elapsedMs": 1402,
+          "previousWords": 1063,
+          "quality": [],
+          "selector": "#article-body"
+        }
+      ]
+    },
+    {
+      "name": "PlayStationTrophies",
+      "catalogue": "https://www.playstationtrophies.org/guides/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "browser",
+      "candidateCount": 15,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.playstationtrophies.org/game/project-007-working-title/guide/",
+          "status": "ok",
+          "mode": "browser",
+          "title": "007 First Light Trophy Guide",
+          "words": 4958,
+          "images": 105,
+          "tables": 0,
+          "headings": 40,
+          "quality": [],
+          "previousWords": 651,
+          "selector": "article.text-article, .achi"
+        },
+        {
+          "url": "https://www.playstationtrophies.org/game/mafia-3/guide/",
+          "status": "ok",
+          "mode": "browser",
+          "title": "Mafia III: Definitive Edition Trophy Guide",
+          "words": 12365,
+          "images": 242,
+          "tables": 0,
+          "headings": 94,
+          "quality": [],
+          "previousWords": 2378,
+          "selector": "article.text-article, .achi"
+        }
+      ]
+    },
+    {
+      "name": "PowerPyx",
+      "catalogue": "https://www.powerpyx.com/trophy-guides/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 510,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.powerpyx.com/red-dead-redemption-1-ps5-ps4-trophy-guide-roadmap/",
+          "status": "ok",
+          "title": "Red Dead Redemption 1 (PS5/PS4) Trophy Guide & Roadmap",
+          "words": 8461,
+          "links": 1,
+          "images": 216,
+          "tables": 1,
+          "headings": 8,
+          "linkDensity": 0.02,
+          "elapsedMs": 1743,
+          "previousWords": 8464,
+          "quality": [],
+          "selector": ".entry-content"
+        },
+        {
+          "url": "https://www.powerpyx.com/dragons-dogma-2-trophy-guide-roadmap/",
+          "status": "ok",
+          "title": "Dragon’s Dogma 2 Trophy Guide & Roadmap",
+          "words": 10185,
+          "links": 1,
+          "images": 264,
+          "tables": 1,
+          "headings": 7,
+          "linkDensity": 0.05,
+          "elapsedMs": 1897,
+          "previousWords": 10188,
+          "quality": [],
+          "selector": ".entry-content"
+        }
+      ]
+    },
+    {
+      "name": "PSNProfiles",
+      "catalogue": "https://psnprofiles.com/guides",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 0,
+      "catalogError": "HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+      "samples": []
+    },
+    {
+      "name": "Push Square",
+      "catalogue": "https://www.pushsquare.com/guides",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 128,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://www.pushsquare.com/guides/stellar-blade-spire-4-walkthrough-cans-design-patterns-beta-cores-body-cores-exospines-passcodes-camps",
+          "status": "ok",
+          "title": "Stellar Blade: Spire 4 Walkthrough - Cans, Design Patterns, Beta Cores, Body Cores, Exospines, Passcodes, Camps",
+          "words": 1517,
+          "links": 1,
+          "images": 59,
+          "tables": 0,
+          "headings": 46,
+          "linkDensity": 0.04,
+          "elapsedMs": 5159,
+          "previousWords": 1484,
+          "quality": [],
+          "selector": ".article-text"
+        },
+        {
+          "url": "https://www.pushsquare.com/guides/stellar-blade-all-butterflies-in-the-wasteland-locations",
+          "status": "ok",
+          "title": "Stellar Blade: All Butterflies in the Wasteland Locations",
+          "words": 416,
+          "links": 1,
+          "images": 31,
+          "tables": 0,
+          "headings": 11,
+          "linkDensity": 0.11,
+          "elapsedMs": 5151,
+          "previousWords": 405,
+          "quality": [],
+          "selector": ".article-text"
+        }
+      ]
+    },
+    {
+      "name": "RPG Site",
+      "catalogue": "https://www.rpgsite.net/category/guides",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 0,
+      "catalogError": "Nie można sprawdzić robots.txt: HTTP 500: serwis odmówił dostępu lub strona nie istnieje.",
+      "samples": []
+    },
+    {
+      "name": "Samurai Gamers",
+      "catalogue": "https://samurai-gamers.com/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 11,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://samurai-gamers.com/dragon-quest-3-remake/dq3re-slime-earrings-accessory-guide/",
+          "status": "ok",
+          "title": "Dragon Quest 3 HD-2D Remake - Slime Earrings Accessory Guide: Stats and Effects",
+          "words": 582,
+          "links": 121,
+          "images": 11,
+          "tables": 14,
+          "headings": 20,
+          "linkDensity": 0.53,
+          "elapsedMs": 2073,
+          "previousWords": 582,
+          "quality": [],
+          "selector": ".entry-content"
+        },
+        {
+          "url": "https://samurai-gamers.com/metaphor-refantazio/metaphor-does-demo-progress-carry-over/",
+          "status": "ok",
+          "title": "Metaphor: ReFantazio - Does Demo Progress Carry Over?",
+          "words": 282,
+          "links": 11,
+          "images": 2,
+          "tables": 0,
+          "headings": 6,
+          "linkDensity": 0.04,
+          "elapsedMs": 2011,
+          "previousWords": 282,
+          "quality": [],
+          "selector": ".entry-content"
+        }
+      ]
+    },
+    {
+      "name": "Steam Community",
+      "catalogue": "https://steamcommunity.com/app/1245620/guides/",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 10,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=2804069465",
+          "status": "ok",
+          "title": "Steam Community :: Guide :: Steam Deck: Best settings for sexy stable 30 FPS",
+          "words": 223,
+          "links": 0,
+          "images": 2,
+          "tables": 0,
+          "headings": 3,
+          "linkDensity": 0,
+          "elapsedMs": 1608,
+          "previousWords": 223,
+          "quality": [],
+          "selector": ".guide.subSections"
+        },
+        {
+          "url": "https://steamcommunity.com/sharedfiles/filedetails/?id=3831381063",
+          "status": "ok",
+          "title": "Steam Community :: Guide :: Melina",
+          "words": 13,
+          "links": 0,
+          "images": 0,
+          "tables": 0,
+          "headings": 1,
+          "linkDensity": 0,
+          "elapsedMs": 1560,
+          "previousWords": 13,
+          "quality": [
+            "Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik."
+          ],
+          "selector": ".guide.subSections"
+        }
+      ]
+    },
+    {
+      "name": "StrategyWiki",
+      "catalogue": "https://strategywiki.org/wiki/Main_Page",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "browser",
+      "candidateCount": 4,
+      "catalogError": null,
+      "samples": [
+        {
+          "url": "https://strategywiki.org/wiki/Tetris",
+          "status": "ok",
+          "mode": "browser",
+          "title": "Tetris",
+          "words": 486,
+          "images": 3,
+          "tables": 3,
+          "headings": 1,
+          "quality": [],
+          "previousWords": 486,
+          "selector": "#mw-content-text .mw-parser-output"
+        },
+        {
+          "url": "https://strategywiki.org/wiki/ARMS",
+          "status": "ok",
+          "mode": "browser",
+          "title": "ARMS",
+          "words": 38,
+          "images": 9,
+          "tables": 4,
+          "headings": 1,
+          "quality": [
+            "Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik."
+          ],
+          "previousWords": 38,
+          "selector": "#mw-content-text .mw-parser-output"
+        }
+      ]
+    },
+    {
+      "name": "TrueAchievements",
+      "catalogue": "https://www.trueachievements.com/walkthroughs.aspx",
+      "seed": "gameguides-2026-11-02-v2",
+      "mode": "http",
+      "candidateCount": 0,
+      "catalogError": "Nie można sprawdzić robots.txt: HTTP 403: serwis odmówił dostępu lub strona nie istnieje.",
+      "samples": []
+    }
+  ]
+}

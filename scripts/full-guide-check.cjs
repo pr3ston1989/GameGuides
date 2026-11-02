@@ -1,0 +1,20 @@
+const {app}=require('electron');
+const fs=require('node:fs/promises');
+const path=require('node:path');
+const {Engine}=require('../src/engine.cjs');
+const {bookHtml}=require('../src/book.cjs');
+const {printBook}=require('../src/pdf.cjs');
+app.setPath('userData',path.resolve('output/full-guide/profile'));app.on('window-all-closed',()=>{});
+app.whenReady().then(async()=>{
+ const root=path.resolve('output/full-guide');await fs.mkdir(root,{recursive:true});
+ let previous=-1;
+ const engine=new Engine(p=>{if(p.phase==='scan'&&Math.floor(p.done/10)!==previous){previous=Math.floor(p.done/10);console.log(p.message);}},null,{checkpoint:s=>fs.writeFile(path.join(root,'checkpoint.json'),JSON.stringify(s))});
+ const start=Date.now();let resume=null;
+ if(process.argv.includes('--resume'))resume=JSON.parse(await fs.readFile(path.join(root,'checkpoint.json'),'utf8'));
+ const result=await engine.scan('https://www.gamepressure.com/greedfall/',{limit:1000,resume});
+ const chapters=await engine.chapters(result.pages.map(p=>p.key),false);
+ await printBook(bookHtml(chapters,{warnings:engine.warnings,title:'GreedFall — pełny test poradnika'}),path.join(root,'GreedFall.pdf'));
+ const report={source:engine.seed,elapsedMs:Date.now()-start,resumed:!!resume,pages:result.pages,pending:result.pending,truncated:result.truncated,warnings:engine.warnings,images:false,complete:!result.pending&&!engine.warnings.length};
+ await fs.writeFile(path.join(root,'report.json'),JSON.stringify(report,null,2));
+ console.log('FULL_GUIDE_OK',result.pages.length,'pending',result.pending,'warnings',engine.warnings.length);app.exit(0);
+}).catch(e=>{console.error(e);app.exit(1);});

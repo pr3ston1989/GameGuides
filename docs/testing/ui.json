@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "checks": [
+    "scan",
+    "limit",
+    "resume",
+    "filter",
+    "reorder",
+    "custom title",
+    "Letter landscape",
+    "PDF dimensions",
+    "PDF internal links",
+    "PDF export",
+    "corrupt images reported",
+    "history update",
+    "cancel",
+    "resume after cancel",
+    "compact layout",
+    "invalid URL"
+  ]
+}

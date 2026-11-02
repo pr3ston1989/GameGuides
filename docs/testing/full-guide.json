@@ -1,0 +1,1007 @@
+{
+  "source": "https://www.gamepressure.com/greedfall/",
+  "elapsedMs": 1574,
+  "resumed": true,
+  "pages": [
+    {
+      "key": "https://www.gamepressure.com/greedfall/",
+      "title": "GreedFall Guide",
+      "url": "https://www.gamepressure.com/greedfall/",
+      "words": 2919
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/game-guide/z4c818",
+      "title": "GreedFall: Game Guide",
+      "url": "https://www.gamepressure.com/greedfall/game-guide/z4c818",
+      "words": 151
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/basics/z5c819",
+      "title": "GreedFall: Basics",
+      "url": "https://www.gamepressure.com/greedfall/basics/z5c819",
+      "words": 186
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/beginners-guide/z2c960",
+      "title": "GreedFall: Beginner's Guide & Tips",
+      "url": "https://www.gamepressure.com/greedfall/beginners-guide/z2c960",
+      "words": 1829
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/100-how-to-complete-the-game/z5c9cf",
+      "title": "GreedFall: 100% - how to complete the game?",
+      "url": "https://www.gamepressure.com/greedfall/100-how-to-complete-the-game/z5c9cf",
+      "words": 839
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/team-management/z4c9ce",
+      "title": "GreedFall: Team management Guide",
+      "url": "https://www.gamepressure.com/greedfall/team-management/z4c9ce",
+      "words": 498
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/character-development/zac986",
+      "title": "GreedFall: Character development",
+      "url": "https://www.gamepressure.com/greedfall/character-development/zac986",
+      "words": 608
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/reputation/z9c985",
+      "title": "GreedFall: Reputation Guide",
+      "url": "https://www.gamepressure.com/greedfall/reputation/z9c985",
+      "words": 571
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/character-creation/zdc81a",
+      "title": "GreedFall: Character creation",
+      "url": "https://www.gamepressure.com/greedfall/character-creation/zdc81a",
+      "words": 501
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/companions/zec81b",
+      "title": "GreedFall: Companions",
+      "url": "https://www.gamepressure.com/greedfall/companions/zec81b",
+      "words": 290
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/factions/zfc81c",
+      "title": "GreedFall: Factions",
+      "url": "https://www.gamepressure.com/greedfall/factions/zfc81c",
+      "words": 329
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/malichor/z0c81d",
+      "title": "GreedFall: Malichor",
+      "url": "https://www.gamepressure.com/greedfall/malichor/z0c81d",
+      "words": 233
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/skill-tree/z3c952",
+      "title": "GreedFall: Skill tree",
+      "url": "https://www.gamepressure.com/greedfall/skill-tree/z3c952",
+      "words": 1137
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/talents/z1c950",
+      "title": "GreedFall: Talents",
+      "url": "https://www.gamepressure.com/greedfall/talents/z1c950",
+      "words": 600
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/attributes/z2c951",
+      "title": "GreedFall: Attributes",
+      "url": "https://www.gamepressure.com/greedfall/attributes/z2c951",
+      "words": 783
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/craftsmanship-and-alchemy/z7c95f",
+      "title": "GreedFall: Craftsmanship, alchemy",
+      "url": "https://www.gamepressure.com/greedfall/craftsmanship-and-alchemy/z7c95f",
+      "words": 719
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/exploration-and-stealth/z9c99d",
+      "title": "GreedFall: Exploration & Stealth Guide",
+      "url": "https://www.gamepressure.com/greedfall/exploration-and-stealth/z9c99d",
+      "words": 959
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/interface/z4c953",
+      "title": "GreedFall: Interface, HUD Guide",
+      "url": "https://www.gamepressure.com/greedfall/interface/z4c953",
+      "words": 538
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/combat/z5c9a8",
+      "title": "GreedFall: Combat",
+      "url": "https://www.gamepressure.com/greedfall/combat/z5c9a8",
+      "words": 1001
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/arena/z6c9a9",
+      "title": "GreedFall: Arena",
+      "url": "https://www.gamepressure.com/greedfall/arena/z6c9a9",
+      "words": 369
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/magic/zec9aa",
+      "title": "GreedFall: Magic",
+      "url": "https://www.gamepressure.com/greedfall/magic/zec9aa",
+      "words": 348
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/faq/z7c947",
+      "title": "GreedFall: FAQ",
+      "url": "https://www.gamepressure.com/greedfall/faq/z7c947",
+      "words": 286
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/frequently-asked-questions/z2e9b2",
+      "title": "GreedFall: Frequently asked questions",
+      "url": "https://www.gamepressure.com/greedfall/frequently-asked-questions/z2e9b2",
+      "words": 2253
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/city-of-serene-can-i-return/z2c9d2",
+      "title": "GreedFall: City of Serene (Prologue) - can I return?",
+      "url": "https://www.gamepressure.com/greedfall/city-of-serene-can-i-return/z2c9d2",
+      "words": 416
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/companions-can-they-die/z1c9d1",
+      "title": "GreedFall: Companions - can they die?",
+      "url": "https://www.gamepressure.com/greedfall/companions-can-they-die/z1c9d1",
+      "words": 395
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/companions-can-they-betray-me/z0c9d0",
+      "title": "GreedFall: Companions - can they betray me?",
+      "url": "https://www.gamepressure.com/greedfall/companions-can-they-betray-me/z0c9d0",
+      "words": 477
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/gold-how-to-collect/zdc989",
+      "title": "GreedFall: Gold - how to collect?",
+      "url": "https://www.gamepressure.com/greedfall/gold-how-to-collect/zdc989",
+      "words": 522
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/experience-points-how-to-earn/zcc988",
+      "title": "GreedFall: Experience points - how to earn?",
+      "url": "https://www.gamepressure.com/greedfall/experience-points-how-to-earn/zcc988",
+      "words": 412
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/romances-are-there-any/zbc987",
+      "title": "GreedFall: Romances - are there any?",
+      "url": "https://www.gamepressure.com/greedfall/romances-are-there-any/zbc987",
+      "words": 616
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/laced-drink-how-to-prepare/z8c984",
+      "title": "GreedFall: Laced Drink (Prologue) - how to prepare?",
+      "url": "https://www.gamepressure.com/greedfall/laced-drink-how-to-prepare/z8c984",
+      "words": 430
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/inventory-why-cant-i-remove-items/z7c983",
+      "title": "GreedFall: Inventory - why can't I remove an item?",
+      "url": "https://www.gamepressure.com/greedfall/inventory-why-cant-i-remove-items/z7c983",
+      "words": 349
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/wounds-how-to-heal/z6c982",
+      "title": "GreedFall: Wounds - how to heal?",
+      "url": "https://www.gamepressure.com/greedfall/wounds-how-to-heal/z6c982",
+      "words": 588
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/closed-chests-doors-how-to-unlock/z8c948",
+      "title": "GreedFall: Closed chests, doors - how to unlock?",
+      "url": "https://www.gamepressure.com/greedfall/closed-chests-doors-how-to-unlock/z8c948",
+      "words": 715
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/difficulty-level-which-one-is-best/z9c949",
+      "title": "GreedFall: Difficulty level - which one is best?",
+      "url": "https://www.gamepressure.com/greedfall/difficulty-level-which-one-is-best/z9c949",
+      "words": 604
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/attributes-talents-how-to-unlock/zfc9ab",
+      "title": "GreedFall: Attributes, talents - how to unlock?",
+      "url": "https://www.gamepressure.com/greedfall/attributes-talents-how-to-unlock/zfc9ab",
+      "words": 567
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/looks-can-i-change/z7c96e",
+      "title": "GreedFall: Looks - can I change?",
+      "url": "https://www.gamepressure.com/greedfall/looks-can-i-change/z7c96e",
+      "words": 353
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/inventory-how-to-deal-with-limits/z1c94a",
+      "title": "GreedFall: Inventory capacity - how to deal with limits?",
+      "url": "https://www.gamepressure.com/greedfall/inventory-how-to-deal-with-limits/z1c94a",
+      "words": 605
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/game-finished-can-i-see-everything/z4c971",
+      "title": "GreedFall: Game finished - can I see everything?",
+      "url": "https://www.gamepressure.com/greedfall/game-finished-can-i-see-everything/z4c971",
+      "words": 418
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/fast-travel-how-to-use/z2c94b",
+      "title": "GreedFall: Fast travel - how to use?",
+      "url": "https://www.gamepressure.com/greedfall/fast-travel-how-to-use/z2c94b",
+      "words": 523
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/character-development-how-to-reset/z3c94c",
+      "title": "GreedFall: Character development - how to reset?",
+      "url": "https://www.gamepressure.com/greedfall/character-development-how-to-reset/z3c94c",
+      "words": 474
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/camping-how-do-i-do-it/zbc99f",
+      "title": "GreedFall: Camping - how do I do it? Guide",
+      "url": "https://www.gamepressure.com/greedfall/camping-how-do-i-do-it/zbc99f",
+      "words": 414
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/side-quests-how-to-find/z3c970",
+      "title": "GreedFall: Side quests - how to find?",
+      "url": "https://www.gamepressure.com/greedfall/side-quests-how-to-find/z3c970",
+      "words": 317
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/puzzle-with-elements-how-to-solve/z6c973",
+      "title": "GreedFall: Puzzle with elements - how to solve?",
+      "url": "https://www.gamepressure.com/greedfall/puzzle-with-elements-how-to-solve/z6c973",
+      "words": 313
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/inaccessible-places-how-to-reach/zac99e",
+      "title": "GreedFall: Inaccessible places - how to reach?",
+      "url": "https://www.gamepressure.com/greedfall/inaccessible-places-how-to-reach/zac99e",
+      "words": 576
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/secrets-and-additional-activities/z8c97e",
+      "title": "GreedFall: Secrets and additional activities",
+      "url": "https://www.gamepressure.com/greedfall/secrets-and-additional-activities/z8c97e",
+      "words": 161
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/list-of-all-skill-altars/z9c97f",
+      "title": "GreedFall: Skill Altars - list of all",
+      "url": "https://www.gamepressure.com/greedfall/list-of-all-skill-altars/z9c97f",
+      "words": 263
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/nadaiga-mini-side-bosses/z4c980",
+      "title": "GreedFall: Nadaiga, mini side bosses - list, how to beat? Walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/nadaiga-mini-side-bosses/z4c980",
+      "words": 511
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/list-of-all-legendary-items-locations/z5c981",
+      "title": "GreedFall: Legendary Items - list of all locations",
+      "url": "https://www.gamepressure.com/greedfall/list-of-all-legendary-items-locations/z5c981",
+      "words": 422
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/character-builds/z7c9c8",
+      "title": "GreedFall: Character builds",
+      "url": "https://www.gamepressure.com/greedfall/character-builds/z7c9c8",
+      "words": 167
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/battle-mage/z3c9cd",
+      "title": "GreedFall: Battle Mage - character build",
+      "url": "https://www.gamepressure.com/greedfall/battle-mage/z3c9cd",
+      "words": 449
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/master-of-potions/z2c9cc",
+      "title": "GreedFall: Master of Potions - character build",
+      "url": "https://www.gamepressure.com/greedfall/master-of-potions/z2c9cc",
+      "words": 400
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/charismatic-character-of-support/z1c9cb",
+      "title": "GreedFall: Charismatic character of support - character build",
+      "url": "https://www.gamepressure.com/greedfall/charismatic-character-of-support/z1c9cb",
+      "words": 409
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/sharpshooter/z0c9ca",
+      "title": "GreedFall: Sharpshooter - character build",
+      "url": "https://www.gamepressure.com/greedfall/sharpshooter/z0c9ca",
+      "words": 341
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/warrior-technician/z8c9c9",
+      "title": "GreedFall: Warrior Technician - character build",
+      "url": "https://www.gamepressure.com/greedfall/warrior-technician/z8c9c9",
+      "words": 393
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/world-map/z6c95e",
+      "title": "GreedFall: World Map",
+      "url": "https://www.gamepressure.com/greedfall/world-map/z6c95e",
+      "words": 826
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/romances/z4c97a",
+      "title": "GreedFall: Romances",
+      "url": "https://www.gamepressure.com/greedfall/romances/z4c97a",
+      "words": 148
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/general-information/z5c97b",
+      "title": "GreedFall: Romances Guide & General information",
+      "url": "https://www.gamepressure.com/greedfall/general-information/z5c97b",
+      "words": 367
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/vasco/z6c97c",
+      "title": "GreedFall: Vasco - Romance",
+      "url": "https://www.gamepressure.com/greedfall/vasco/z6c97c",
+      "words": 201
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/aphra/z7c97d",
+      "title": "GreedFall: Aphra - Romance",
+      "url": "https://www.gamepressure.com/greedfall/aphra/z7c97d",
+      "words": 236
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/siora/zdc9a0",
+      "title": "GreedFall: Siora - Romance",
+      "url": "https://www.gamepressure.com/greedfall/siora/zdc9a0",
+      "words": 208
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/trophies-achievements/z7c8ff",
+      "title": "GreedFall: Trophies/Achievements - list",
+      "url": "https://www.gamepressure.com/greedfall/trophies-achievements/z7c8ff",
+      "words": 4844
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/mods/z7ca12",
+      "title": "GreedFall: Mods",
+      "url": "https://www.gamepressure.com/greedfall/mods/z7ca12",
+      "words": 142
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/mods-how-to-install/z8ca13",
+      "title": "GreedFall: Mods - how to install?",
+      "url": "https://www.gamepressure.com/greedfall/mods-how-to-install/z8ca13",
+      "words": 183
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/recommended-modifications/z9ca14",
+      "title": "GreedFall: Recommended modifications - list",
+      "url": "https://www.gamepressure.com/greedfall/recommended-modifications/z9ca14",
+      "words": 345
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/appendix/z4c94d",
+      "title": "GreedFall: Appendix",
+      "url": "https://www.gamepressure.com/greedfall/appendix/z4c94d",
+      "words": 147
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/system-requirements/z5c94e",
+      "title": "GreedFall: System requirements",
+      "url": "https://www.gamepressure.com/greedfall/system-requirements/z5c94e",
+      "words": 1008
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/controls/z6c94f",
+      "title": "GreedFall: Controls",
+      "url": "https://www.gamepressure.com/greedfall/controls/z6c94f",
+      "words": 166
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/technical-issues/z5c972",
+      "title": "GreedFall: Technical issues - how to fix? What to do?",
+      "url": "https://www.gamepressure.com/greedfall/technical-issues/z5c972",
+      "words": 432
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/game-length/z6c96d",
+      "title": "GreedFall: Game length",
+      "url": "https://www.gamepressure.com/greedfall/game-length/z6c96d",
+      "words": 264
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/walkthrough/zdc90a",
+      "title": "GreedFall: Walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/walkthrough/zdc90a",
+      "words": 136
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/main-story/zec90b",
+      "title": "GreedFall: Main Story",
+      "url": "https://www.gamepressure.com/greedfall/main-story/zec90b",
+      "words": 159
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/list-of-all-main-storyline-quests/z1c90e",
+      "title": "GreedFall: Main quests - list of all",
+      "url": "https://www.gamepressure.com/greedfall/list-of-all-main-storyline-quests/z1c90e",
+      "words": 399
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/a-cure-for-malichor/z5c954",
+      "title": "GreedFall: A Cure for Malichor",
+      "url": "https://www.gamepressure.com/greedfall/a-cure-for-malichor/z5c954",
+      "words": 236
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-great-departure/zdc910",
+      "title": "GreedFall: The Great Departure - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-great-departure/zdc910",
+      "words": 644
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-battle-of-the-red-spears/zfc912",
+      "title": "GreedFall: The Battle of the Red Spears - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-battle-of-the-red-spears/zfc912",
+      "words": 358
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/old-countries-in-a-new-world/zec911",
+      "title": "GreedFall: Old Countries in a New World & Constantine at the Palace- walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/old-countries-in-a-new-world/zec911",
+      "words": 475
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/demonical-cult/z2c93c",
+      "title": "GreedFall: Demonical Cult - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/demonical-cult/z2c93c",
+      "words": 429
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/scholars-in-the-expedition/z3c961",
+      "title": "GreedFall: Scholars in the Expedition - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/scholars-in-the-expedition/z3c961",
+      "words": 416
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/face-to-face-with-the-demon/zec9a1",
+      "title": "GreedFall: Face to Face with the Demon - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/face-to-face-with-the-demon/zec9a1",
+      "words": 319
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/quest-for-panacea/zfc9a2",
+      "title": "GreedFall: Quest for Panacea - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/quest-for-panacea/zfc9a2",
+      "words": 399
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/in-pursuit-of-the-tierna-harh-cadachtas/z0c9a3",
+      "title": "GreedFall: In Pursuit of the Tierna Harh Cadachtas - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/in-pursuit-of-the-tierna-harh-cadachtas/z0c9a3",
+      "words": 342
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-trials-of-the-water/z8c9d8",
+      "title": "GreedFall: The Trials of the Water - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-trials-of-the-water/z8c9d8",
+      "words": 361
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/on-the-high-kings-trail/z5c9de",
+      "title": "GreedFall: On the High King's Trail - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/on-the-high-kings-trail/z5c9de",
+      "words": 374
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/vinbarrs-sanctuary/z6c9df",
+      "title": "GreedFall: Vinbarr's Sanctuary - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/vinbarrs-sanctuary/z6c9df",
+      "words": 272
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-new-high-king/z2c9e1",
+      "title": "GreedFall: The New High King - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-new-high-king/z2c9e1",
+      "words": 432
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/face-to-face-with-a-god/z3c9e2",
+      "title": "GreedFall: Face to Face with a God - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/face-to-face-with-a-god/z3c9e2",
+      "words": 358
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/an-ancient-secret/z6c955",
+      "title": "GreedFall: An Ancient Secret",
+      "url": "https://www.gamepressure.com/greedfall/an-ancient-secret/z6c955",
+      "words": 152
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/mystery-of-the-ancient-ruins/z3c93d",
+      "title": "GreedFall: Mystery of the Ancient Ruins - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/mystery-of-the-ancient-ruins/z3c93d",
+      "words": 232
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-princes-secret/z4c93e",
+      "title": "GreedFall: The Prince's Secret - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-princes-secret/z4c93e",
+      "words": 330
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/treason/z5c93f",
+      "title": "GreedFall: Treason! - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/treason/z5c93f",
+      "words": 474
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/constantins-fate/z5c9d5",
+      "title": "GreedFall: Constantin's Fate",
+      "url": "https://www.gamepressure.com/greedfall/constantins-fate/z5c9d5",
+      "words": 158
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-suffering-of-constantin/z6c9d6",
+      "title": "GreedFall: The Suffering of Constantin - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-suffering-of-constantin/z6c9d6",
+      "words": 195
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/searching-for-constantin/z7c9d7",
+      "title": "GreedFall: Searching for Constantin - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/searching-for-constantin/z7c9d7",
+      "words": 233
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-dead-mans-voice/z4c9dd",
+      "title": "GreedFall: The Dead Man's Voice - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-dead-mans-voice/z4c9dd",
+      "words": 215
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-skys-teeth/z1c9e0",
+      "title": "GreedFall: The Sky's Teeth - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-skys-teeth/z1c9e0",
+      "words": 232
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/a-new-threat/z4c9e3",
+      "title": "GreedFall: A New Threat",
+      "url": "https://www.gamepressure.com/greedfall/a-new-threat/z4c9e3",
+      "words": 173
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/attack-on-hikmet/z5c9e4",
+      "title": "GreedFall: Attack on Hikmet - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/attack-on-hikmet/z5c9e4",
+      "words": 252
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-attack-on-san-matheus/z6c9e5",
+      "title": "GreedFall: The attack on San Matheus - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-attack-on-san-matheus/z6c9e5",
+      "words": 289
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/where-madness-goes/z7c9e6",
+      "title": "GreedFall: Where Madness Goes - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/where-madness-goes/z7c9e6",
+      "words": 300
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/together-for-teer-fradee/z8c9e7",
+      "title": "GreedFall: Together for Teer Fradee - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/together-for-teer-fradee/z8c9e7",
+      "words": 327
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/breaking-the-links/z9c9e8",
+      "title": "GreedFall: Breaking the Links - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/breaking-the-links/z9c9e8",
+      "words": 337
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/assault-on-the-heart/zac9e9",
+      "title": "GreedFall: Assault on the Heart - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/assault-on-the-heart/zac9e9",
+      "words": 440
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/endings-1/z2c9ea",
+      "title": "GreedFall: Endings",
+      "url": "https://www.gamepressure.com/greedfall/endings-1/z2c9ea",
+      "words": 147
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/endings/z3c9eb",
+      "title": "GreedFall: Endings",
+      "url": "https://www.gamepressure.com/greedfall/endings/z3c9eb",
+      "words": 319
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/choices-which-ones-affect-ending/z4c9ec",
+      "title": "GreedFall: Choices - which ones affect the ending?",
+      "url": "https://www.gamepressure.com/greedfall/choices-which-ones-affect-ending/z4c9ec",
+      "words": 377
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/best-ending-how-to-get/z5c9ed",
+      "title": "GreedFall: Best ending - how to get?",
+      "url": "https://www.gamepressure.com/greedfall/best-ending-how-to-get/z5c9ed",
+      "words": 557
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/side-quests/zfc90c",
+      "title": "GreedFall: Side quests",
+      "url": "https://www.gamepressure.com/greedfall/side-quests/zfc90c",
+      "words": 178
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/list-of-all-side-quests/z0c913",
+      "title": "GreedFall: Side quests - list of all",
+      "url": "https://www.gamepressure.com/greedfall/list-of-all-side-quests/z0c913",
+      "words": 187
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/before-the-departure/z8c957",
+      "title": "GreedFall: Before the Departure",
+      "url": "https://www.gamepressure.com/greedfall/before-the-departure/z8c957",
+      "words": 153
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-charlatan/z2c915",
+      "title": "GreedFall: The Charlatan - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-charlatan/z2c915",
+      "words": 410
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/coin-guard-merchandise-heretic-hunt/z1c914",
+      "title": "GreedFall: Coin Guard Merchandise, Heretic Hunt - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/coin-guard-merchandise-heretic-hunt/z1c914",
+      "words": 311
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/disappearance-among-the-nauts/z3c916",
+      "title": "GreedFall: Disappearance among the Nauts - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/disappearance-among-the-nauts/z3c916",
+      "words": 243
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-children-of-teer-fradee/z9c958",
+      "title": "GreedFall: The Children of Teer Fradee",
+      "url": "https://www.gamepressure.com/greedfall/the-children-of-teer-fradee/z9c958",
+      "words": 170
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/an-aspiring-merchant/z5c918",
+      "title": "GreedFall: An Aspiring Merchant - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/an-aspiring-merchant/z5c918",
+      "words": 327
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/a-peculiar-alliance/zec91a",
+      "title": "GreedFall: A Peculiar Alliance - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/a-peculiar-alliance/zec91a",
+      "words": 309
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/inquisition/z0c91c",
+      "title": "GreedFall: Inquisition - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/inquisition/z0c91c",
+      "words": 235
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/logging-expedition/z4c962",
+      "title": "GreedFall: Logging Expedition - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/logging-expedition/z4c962",
+      "words": 272
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-price-of-blood/z5c963",
+      "title": "GreedFall: The price of blood - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-price-of-blood/z5c963",
+      "words": 257
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/camp-of-the-ordo-luminis/z4c9a7",
+      "title": "GreedFall: Camp of the Ordo Luminis - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/camp-of-the-ordo-luminis/z4c9a7",
+      "words": 295
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-shadows-of-the-guard/zac959",
+      "title": "GreedFall: The Shadows of the Guard",
+      "url": "https://www.gamepressure.com/greedfall/the-shadows-of-the-guard/zac959",
+      "words": 168
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-man-with-the-silver-coin/z4c917",
+      "title": "GreedFall: The Man With the Silver Coin - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-man-with-the-silver-coin/z4c917",
+      "words": 322
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/champion-of-the-arena/z6c919",
+      "title": "GreedFall: Champion Of The Arena - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/champion-of-the-arena/z6c919",
+      "words": 280
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/contraband/z7c974",
+      "title": "GreedFall: Contraband - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/contraband/z7c974",
+      "words": 324
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/human-trafficking/z8c975",
+      "title": "GreedFall: Human Trafficking - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/human-trafficking/z8c975",
+      "words": 262
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/egons-face/z9c976",
+      "title": "GreedFall: Egon's Face - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/egons-face/z9c976",
+      "words": 183
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/in-the-name-of-science/z2c95a",
+      "title": "GreedFall: In the Name of Science",
+      "url": "https://www.gamepressure.com/greedfall/in-the-name-of-science/z2c95a",
+      "words": 160
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/attack-on-caravans/zfc91b",
+      "title": "GreedFall: Attack on Caravans - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/attack-on-caravans/zfc91b",
+      "words": 237
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/at-the-center-of-the-rebellion/z6c9ee",
+      "title": "GreedFall: At the center of the rebellion - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/at-the-center-of-the-rebellion/z6c9ee",
+      "words": 325
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-experiments-of-dr-asili/z7c9ef",
+      "title": "GreedFall: The Experiments of Dr. Asili - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-experiments-of-dr-asili/z7c9ef",
+      "words": 329
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-trial/z2c9f0",
+      "title": "GreedFall: The Trial - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-trial/z2c9f0",
+      "words": 322
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-origins-of-theleme/z5c96c",
+      "title": "GreedFall: The Origins of Theleme",
+      "url": "https://www.gamepressure.com/greedfall/the-origins-of-theleme/z5c96c",
+      "words": 158
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/trouble-in-eden/z0c940",
+      "title": "GreedFall: Trouble in Eden - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/trouble-in-eden/z0c940",
+      "words": 254
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/theological-conflicts/z1c9a4",
+      "title": "GreedFall: Theological Conflicts - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/theological-conflicts/z1c9a4",
+      "words": 403
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/in-the-footsteps-of-saint-matheus/z2c9a5",
+      "title": "GreedFall: In the Footsteps of Saint Matheus - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/in-the-footsteps-of-saint-matheus/z2c9a5",
+      "words": 212
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/saint-and-wild/z3c9a6",
+      "title": "GreedFall: Saint and Wild - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/saint-and-wild/z3c9a6",
+      "words": 385
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-nauts-secrets/z4c96b",
+      "title": "GreedFall: The Naut's Secrets",
+      "url": "https://www.gamepressure.com/greedfall/the-nauts-secrets/z4c96b",
+      "words": 159
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-admirals-secret-service/z1c941",
+      "title": "GreedFall: The Admiral's Secret Servic - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-admirals-secret-service/z1c941",
+      "words": 224
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-spy-from-theleme/zac977",
+      "title": "GreedFall: The Spy from Theleme - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-spy-from-theleme/zac977",
+      "words": 191
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/sub-rosa/zbc978",
+      "title": "GreedFall: Sub Rosa - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/sub-rosa/zbc978",
+      "words": 196
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-enemy-within/zcc979",
+      "title": "GreedFall: The Enemy Within - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-enemy-within/zcc979",
+      "words": 246
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/in-professor-serafeddins-footsteps/z6c9fd",
+      "title": "GreedFall: In Professor Serafeddin's Footsteps - walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/in-professor-serafeddins-footsteps/z6c9fd",
+      "words": 338
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/companion-quests/z7c929",
+      "title": "GreedFall: Companion Quests",
+      "url": "https://www.gamepressure.com/greedfall/companion-quests/z7c929",
+      "words": 148
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/list-of-all-companions-quests/z3c95b",
+      "title": "GreedFall: Companions' quests - list",
+      "url": "https://www.gamepressure.com/greedfall/list-of-all-companions-quests/z3c95b",
+      "words": 147
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/kurt/z0c92b",
+      "title": "GreedFall: Kurt",
+      "url": "https://www.gamepressure.com/greedfall/kurt/z0c92b",
+      "words": 158
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/missing-in-action/z4c92f",
+      "title": "GreedFall: Missing in action - Kurts quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/missing-in-action/z4c92f",
+      "words": 309
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/amongst-the-ghosts/zfc930",
+      "title": "GreedFall: Amongst the Ghosts - Kurts quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/amongst-the-ghosts/zfc930",
+      "words": 352
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/settling-the-debt/z6c964",
+      "title": "GreedFall: Settling the debt - Kurts quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/settling-the-debt/z6c964",
+      "words": 242
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/siora-1/z1c92c",
+      "title": "GreedFall: Siora",
+      "url": "https://www.gamepressure.com/greedfall/siora-1/z1c92c",
+      "words": 162
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/find-queen-bladnid/z0c931",
+      "title": "GreedFall: Find Queen Bladnid - Siora quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/find-queen-bladnid/z0c931",
+      "words": 290
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/promises-set-in-stone/z4c9d4",
+      "title": "GreedFall: Promises Set in Stone - Siora quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/promises-set-in-stone/z4c9d4",
+      "words": 266
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-queens-farewell/z3c9d3",
+      "title": "GreedFall: The Queen's Farewell - Siora quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-queens-farewell/z3c9d3",
+      "words": 196
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/vasco-1/z2c92d",
+      "title": "GreedFall: Vasco",
+      "url": "https://www.gamepressure.com/greedfall/vasco-1/z2c92d",
+      "words": 164
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/a-name-for-a-family/z1c932",
+      "title": "GreedFall: A Name for a Family - Vasco quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/a-name-for-a-family/z1c932",
+      "words": 249
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/family-reunion/z2c933",
+      "title": "GreedFall: Family Reunion - Vasco quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/family-reunion/z2c933",
+      "words": 255
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/forever-a-naut/z2c942",
+      "title": "GreedFall: Forever a Naut - Vasco quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/forever-a-naut/z2c942",
+      "words": 281
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/petrus/z3c92e",
+      "title": "GreedFall: Petrus",
+      "url": "https://www.gamepressure.com/greedfall/petrus/z3c92e",
+      "words": 167
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-vices-of-the-mother-cardinal/z3c934",
+      "title": "GreedFall: The Vices of the Mother Cardinal - Petrus quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-vices-of-the-mother-cardinal/z3c934",
+      "words": 291
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/dangerous-bets/zbc969",
+      "title": "GreedFall: Dangerous bets - Petrus quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/dangerous-bets/zbc969",
+      "words": 230
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/sins-of-father-petrus/z3c96a",
+      "title": "GreedFall: Sins Of Father Petrus - Petrus quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/sins-of-father-petrus/z3c96a",
+      "words": 195
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/aphra-1/z7c965",
+      "title": "GreedFall: Aphra",
+      "url": "https://www.gamepressure.com/greedfall/aphra-1/z7c965",
+      "words": 161
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/islander-knowledge/z8c966",
+      "title": "GreedFall: Islander Knowledge - Aphra quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/islander-knowledge/z8c966",
+      "words": 242
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-cave-of-knowledge/z9c967",
+      "title": "GreedFall: The Cave of Knowledge - Aphra quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-cave-of-knowledge/z9c967",
+      "words": 224
+    },
+    {
+      "key": "https://www.gamepressure.com/greedfall/the-linking-ritual/zac968",
+      "title": "GreedFall: The Linking Ritual - Aphra quest walkthrough",
+      "url": "https://www.gamepressure.com/greedfall/the-linking-ritual/zac968",
+      "words": 154
+    }
+  ],
+  "pending": 0,
+  "truncated": false,
+  "warnings": [],
+  "images": false,
+  "complete": true,
+  "pdfPages": 425,
+  "internalLinks": 5494,
+  "brokenLinks": [],
+  "overflow": [],
+  "visuallySampledPages": [
+    1,
+    2,
+    5,
+    12,
+    40,
+    80,
+    160,
+    240,
+    320,
+    400,
+    425
+  ]
+}
