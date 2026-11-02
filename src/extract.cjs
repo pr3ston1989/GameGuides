@@ -1,7 +1,7 @@
 const cheerio = require('cheerio');
 const sanitize = require('sanitize-html');
 const { adapter, belongs, normalize } = require('./sites.cjs');
-const EXTRACTOR_VERSION=2;
+const EXTRACTOR_VERSION=3;
 
 const noise = [
   'script', 'style', 'noscript', 'form', 'button', 'input', 'nav', 'footer',
@@ -116,6 +116,7 @@ function extract(html, url, seed = url) {
     }else node.remove();
   });
   if (site.name==='IGN') {
+    root.find('p').each((_,el)=>{const p=$(el);if(/^<youtube>.*<\/youtube>$/i.test(p.text().trim())){const href=p.find('a[href]').first().attr('href');if(href&&/^https:\/\/(www\.)?youtube\.com\//.test(href))p.empty().append($('<a>').attr('href',href).text('Materiał wideo — otwórz w serwisie źródłowym'));}});
     // Hydrated IGN markup can replace visible images with transparent pixels.
     // Recover only images already present in the visible article by matching alt.
     const sources=new Map();
@@ -186,8 +187,9 @@ function extract(html, url, seed = url) {
   });
   const q = cheerio.load(content), text = q.text().replace(/\s+/g,' ').trim();
   const linkDensity = q('a').text().length / Math.max(text.length,1);
-  const isIndex=linkDensity>0.8&&!q('table').length&&!q('p').filter((_,el)=>q(el).text().length>120).length;
-  if (text.length < 100 && !(isIndex&&!site.single&&site.scope&&q('a[href]').length)) throw new Error('Zbyt mało treści, aby utworzyć rozdział.');
+  const hasMedia=q('img').length>0||q('a[href]').toArray().some(el=>/^https:\/\/(?:www\.)?(?:youtube\.com|youtu\.be|vimeo\.com)\//.test(q(el).attr('href')));
+  const isIndex=!hasMedia&&linkDensity>0.8&&!q('table').length&&!q('p').filter((_,el)=>q(el).text().length>120).length;
+  if (text.length < 100 && !hasMedia && !(isIndex&&!site.single&&site.scope&&q('a[href]').length)) throw new Error('Zbyt mało treści, aby utworzyć rozdział.');
   if (isIndex && (site.single || !site.scope)) {
     throw new Error('Podany adres wygląda na katalog linków, a nie treść poradnika. Wklej adres konkretnego poradnika.');
   }
