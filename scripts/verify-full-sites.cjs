@@ -3,7 +3,7 @@ const fs=require('node:fs/promises'),path=require('node:path');
 const {Engine}=require('../src/engine.cjs'),{bookHtml}=require('../src/book.cjs'),{printBook}=require('../src/pdf.cjs'),{cachedDownloader}=require('../src/media-cache.cjs');
 const reader=require('../src/reader.cjs');
 const root=path.resolve('output/full-sites');
-app.setPath('userData',path.join(root,'profile-'+(process.env.FULL_SITES||'all').replace(/[^a-z0-9]/gi,'')));app.on('window-all-closed',()=>{});
+app.setPath('userData',process.env.FULL_PROFILE||path.join(root,'profile-'+(process.env.FULL_SITES||'all').replace(/[^a-z0-9]/gi,'')));app.on('window-all-closed',()=>{});
 const cases=[
  ['IGN','https://www.ign.com/wikis/portal'],
  ['Gamer Guides','https://www.gamerguides.com/the-witcher-3-wild-hunt/guide/gwent/card-locations/gwent-in-novigrad'],
@@ -28,12 +28,14 @@ async function run([site,url,mode]){
  const report={site,url,started:new Date().toISOString(),mode:mode||'http'};
  try{
   let resume;try{resume=JSON.parse(await fs.readFile(path.join(dir,'checkpoint.json')));}catch{}
+  if(process.argv.includes('--fresh'))resume=null;
   const result=await engine.scan(url,{limit:3000,resume});
   const keys=result.pages.filter(p=>p.kind!=='index').map(p=>p.key);
   const chapters=await engine.chapters(keys,true);
   await fs.writeFile(path.join(dir,'chapters.json'),JSON.stringify(chapters));
   const printed=await printBook(bookHtml(chapters,{images:true,warnings:engine.warnings}),path.join(dir,'guide.pdf'));
-  Object.assign(report,{discovered:result.pages.length,chapters:keys.length,pending:result.pending,truncated:result.truncated,pages:result.pages,media:engine.media,warnings:[...engine.warnings,...printed.warnings],status:result.pending||engine.warnings.length||printed.warnings.length?'with-issues':'exported',finished:new Date().toISOString()});
+  await fs.unlink(path.join(dir,'inspection.json')).catch(()=>{});
+  Object.assign(report,{discovered:result.pages.length,chapters:chapters.length,pending:result.pending,truncated:result.truncated,pages:result.pages,media:engine.media,warnings:[...engine.warnings,...printed.warnings],status:result.pending||engine.warnings.length||printed.warnings.length?'with-issues':'exported',finished:new Date().toISOString()});
  }catch(e){Object.assign(report,{status:'failed',error:e.message,warnings:engine.warnings,finished:new Date().toISOString()});}
  await fs.writeFile(reportFile,JSON.stringify(report,null,2));console.log('FINISHED',site,report.status,report.chapters||0);
  reader.close();

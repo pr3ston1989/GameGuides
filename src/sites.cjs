@@ -34,6 +34,8 @@ function adapter(url) { const u=new URL(url); return sites.find(s=>u.hostname===
 function belongs(seed, candidate) {
   const a=new URL(seed), b=new URL(candidate), s=adapter(seed);
   if(/\/Special:/i.test(b.pathname))return false;
+  if(s.name==='Game8'&&/\/archives\/(?:[^/]+\/comments(?:\/|$)|:[^/]+)/i.test(b.pathname))return false;
+  if(s.name==='Game8'&&/\/boards(?:\/|$)/i.test(b.pathname))return false;
   const sameHost=a.hostname.replace(/^www\./,'')===b.hostname.replace(/^www\./,'')&&a.port===b.port;
   if(!sameHost) return false;
   if(s.single) return a.pathname.replace(/\/$/,'')===b.pathname.replace(/\/$/,'')&&a.search===b.search;

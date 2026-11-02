@@ -11,6 +11,8 @@ test('pusta strona głównego spisu używa rzeczywistych linków i pomija narzę
  const url='https://www.gamerguides.com/test/guide';const p=extract('<h1>Spis</h1><nav><a href="/test/guide/a">Misja A</a><a href="/test/guide/b">Misja B</a></nav>',url);
  assert.equal(p.kind,'index');assert.equal(p.links.length,2);assert(p.content.includes('Misja A'));
  const {belongs}=require('../src/sites.cjs');assert.equal(belongs('https://www.neoseeker.com/test/','https://www.neoseeker.com/test/Special:CreatePage?type=walkthrough'),false);
+ assert.equal(belongs('https://game8.co/games/MetroidDread','https://game8.co/games/MetroidDread/archives/123/comments'),false);
+ assert.equal(belongs('https://game8.co/games/MetroidDread','https://game8.co/games/MetroidDread/archives/:id'),false);
 });
 test('główna mapa ponad artykułem jest zachowana w pełnej rozdzielczości',()=>{
  const html=`<main><div class="guide16-map-c"><figure><figcaption>Mapa świata</figcaption><picture><source srcset="/small.jpg"><img src="/small.jpg"></picture><a class="guide-map-2020-zoom" href="/static/mapy/full.jpg"></a></figure></div><h1>GreedFall: World Map</h1><div class="p-word"><p>${text}</p><div class="text-frame-red"><p>Ważne ostrzeżenie.</p></div><img src="/greedfall/gfx/word/quest.jpg"><section class="game2-obj-c">Rate It! Overview Review</section></div></main>`;
@@ -47,6 +49,12 @@ test('robots.txt 403 nie blokuje publicznego obrazu; 429 i 500 zatrzymują pobie
 test('pobieranie ilustracji zachowuje jawne crawl-delay serwisu',async()=>{
  const delays=[];const e=new Engine(()=>{},null,{fetcher:async()=>({data:Buffer.from('User-agent: *\nCrawl-delay: 3')}),wait:async ms=>delays.push(ms)});
  await e.allowed('https://example.com/image.png',{media:true});assert.deepEqual(delays,[3000]);
+});
+test('identyczny rozdział pod dwoma adresami jest eksportowany raz, z odsyłaczami aliasu',async()=>{
+ const a='https://www.ign.com/wikis/test/a',b='https://www.ign.com/wikis/test/b';
+ const e=new Engine();const content='<h2 id="boss">Boss</h2><p>'+text+'</p><a href="'+b+'#boss">Dalej</a>';
+ e.pages.set(a,{url:a,title:'Misja',content});e.pages.set(b,{url:b,title:'Misja',content});
+ const chapters=await e.chapters([a,b],false);assert.equal(chapters.length,1);assert.deepEqual(chapters[0].aliases,[b]);assert(bookHtml(chapters).includes('href="#chapter-0-a-'));
 });
 test('leniwe filmy PowerPyx są linkami do wideo zamiast fałszywych ilustracji',()=>{
  const p=extract('<h1>Gra</h1><div class="entry-content"><p>'+text+'</p><img data-lazy-type="iframe" data-lazy-src="&lt;iframe src=&quot;//www.youtube.com/embed/abc&quot;&gt;&lt;/iframe&gt;"></div>','https://www.powerpyx.com/test-trophy-guide-roadmap/');

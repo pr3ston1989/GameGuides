@@ -14,7 +14,7 @@ const noise = [
   '.guide-page-content-footer', '.guide-page-topper', '.affiliate-disclaimer',
   '#utility-bar', '.spons', '.gg-ad', '.remove-this-ad', '.nc_socialPanel',
   '.powio-3-c', '.game2-obj-c', '.s024-np-c', '.no-print',
-  '#toc', '.toc', '.ez-toc-container', '.mw-editsection'
+  '#toc', '.toc', '.ez-toc-container', '.mw-editsection', '.noprint'
 ].join(',');
 
 function firstText($, selector) {

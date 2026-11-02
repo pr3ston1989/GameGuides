@@ -7,6 +7,7 @@ const plural=(n,one,few,many)=>`${n} ${n===1?one:n%10>=2&&n%10<=4&&(n%100<12||n%
 
 function prepareChapters(chapters) {
   const indexes=new Map(chapters.map((c,i)=>[normalize(c.url),i]));
+  chapters.forEach((c,i)=>(c.aliases||[]).forEach(url=>indexes.set(normalize(url),i)));
   const docs=chapters.map(c=>cheerio.load(c.content));
   const ids=docs.map(($,i)=>{
     const map=new Map();

@@ -3,6 +3,7 @@ const {extract,EXTRACTOR_VERSION} = require('./extract.cjs');
 const {normalize,adapter,belongs} = require('./sites.cjs');
 const robotsParser = require('robots-parser');
 const cheerio = require('cheerio');
+const {createHash}=require('node:crypto');
 
 const pause = (ms,signal) => new Promise((resolve,reject) => {
   if(signal.aborted) return reject(new Error('Anulowano.'));
@@ -50,7 +51,7 @@ class Engine {
     this.pages.clear(); this.warnings=[]; this.truncated=false;
     this.pending=[this.seed]; this.seen=new Set(this.pending);
     if(resume && resume.seed===this.seed && resume.extractorVersion===EXTRACTOR_VERSION) {
-      this.pages=new Map(resume.pages);
+      this.pages=new Map(resume.pages.filter(([key])=>belongs(this.seed,key)));
       this.pending=[...new Set(resume.pending.concat(resume.warnings.filter(w=>w.kind==='page').map(w=>w.url)))].filter(u=>belongs(this.seed,u));
       this.seen=new Set(resume.seen);
       this.warnings=resume.warnings.filter(w=>!['limit','page'].includes(w.kind));
@@ -111,7 +112,7 @@ class Engine {
   }
 
   async chapters(keys,images) {
-    const chapters=[],cache=new Map(); let bytes=0;
+    const chapters=[],cache=new Map(),duplicates=new Map(); let bytes=0;
     this.media={requested:!!images,expected:0,embedded:0,failed:0,assets:[]};
     // Export warnings belong to this attempt, not previous exports.
     this.warnings=this.warnings.filter(w=>w.kind!=='image');
@@ -119,6 +120,11 @@ class Engine {
       if(this.signal.aborted) throw new Error('Anulowano.');
       const page=this.pages.get(key);
       if(!page) throw new Error('Lista rozdziałów wygasła. Przeanalizuj poradnik ponownie.');
+      const fingerprint=createHash('sha256').update(page.title+'\0'+page.content).digest('hex');
+      if(duplicates.has(fingerprint)){
+        const original=chapters[duplicates.get(fingerprint)];original.aliases=[...new Set([...(original.aliases||[]),page.url,...(page.aliases||[])])];continue;
+      }
+      duplicates.set(fingerprint,chapters.length);
       this.progress({phase:'export',done:i+1,total:keys.length,message:`Składanie ${i+1}/${keys.length}: ${page.title}`});
       const $=cheerio.load(page.content);
       for(const [index,el] of $('img').toArray().entries()) {
