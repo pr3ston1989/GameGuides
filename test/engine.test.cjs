@@ -1,0 +1,7 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');const {Engine}=require('../src/engine.cjs');
+const base='https://www.ign.com/wikis/test';
+const page=(title,links=[])=>`<h1>${title}</h1><nav>${links.map(h=>`<a href="${h}">rozdział</a>`).join('')}</nav><article><p>${'Treść poradnika. '.repeat(30)}</p></article>`;
+function fixture(){const engine=new Engine(()=>{},async url=>{if(url.endsWith('/missing'))throw new Error('HTTP 404');return {url,type:'text/html',data:Buffer.from(url===base?page('Gra',[base+'/quest',base+'/missing','https://www.ign.com/wikis/other']):page('Misja',[base]))};});engine.allowed=async()=>{};return engine;}
+test('wielostronicowy poradnik: deduplikacja, zakres, raport błędów i eksport wyboru',async()=>{const engine=fixture();const r=await engine.scan(base);assert.equal(r.pages.length,2);assert.equal(r.warnings.length,1);assert.equal(r.truncated,false);const chapters=await engine.chapters([base+'/quest'],false);assert.equal(chapters.length,1);assert.equal(chapters[0].title,'Misja');});
+test('limit nie udaje kompletnego poradnika',async()=>{const r=await fixture().scan(base,{limit:1});assert.equal(r.pages.length,1);assert.equal(r.truncated,true);assert.match(r.warnings[0].error,/limit/);});
+test('pojedyncza strona nie podąża za rozdziałami; anulowanie zatrzymuje skan',async()=>{const engine=fixture();const r=await engine.scan(base,{mode:'single'});assert.equal(r.pages.length,1);engine.cancel();await assert.rejects(engine.scan(base),/Anulowano/);});
