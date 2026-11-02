@@ -32,7 +32,7 @@ async function main(){
   const coverage=1-missing.length/expected.size;
   const prefix=path.join(root,'renders',name);
   execFileSync('pdftoppm',['-scale-to','440','-png',pdf,prefix],{maxBuffer:10*1024*1024});
-  const files=(await fs.readdir(path.join(root,'renders'))).filter(f=>f.startsWith(name+'-')&&f.endsWith('.png')).sort();
+  const files=Array.from({length:pages},(_,i)=>`${name}-${String(i+1).padStart(String(pages).length,'0')}.png`);
   const tiles=await Promise.all(files.map(async(file,i)=>({input:await sharp(path.join(root,'renders',file)).resize(210,300,{fit:'contain',background:'#ddd'}).toBuffer(),left:i%5*220,top:Math.floor(i/5)*310})));
   await sharp({create:{width:1100,height:Math.ceil(files.length/5)*310,channels:3,background:'#ddd'}}).composite(tiles).png().toFile(path.join(root,name+'-contact.png'));
   results.push({...item,pdfPages:pages,tokenCoverage:Math.round(coverage*10000)/10000,missingTokens:missing,overflow,internalLinks,brokenLinks});
