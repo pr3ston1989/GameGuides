@@ -1,6 +1,6 @@
 {
   "name": "gameguides",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Poradniki do gier w eleganckim PDF",
   "author": "pr3ston1989",
   "license": "MIT",
@@ -17,18 +17,19 @@
     "test:pdf": "electron scripts/qa-pdf.cjs",
     "test:render": "node scripts/render-qa.cjs",
     "test:full": "electron scripts/full-guide-check.cjs",
-    "test:media": "electron scripts/file-assets-check.cjs"
+    "test:media": "electron scripts/file-assets-check.cjs",
+    "test:performance": "electron scripts/performance-check.cjs"
   },
   "dependencies": {
     "cheerio": "^1.1.2",
     "robots-parser": "^3.0.1",
     "sanitize-html": "^2.17.0",
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "pdf-lib": "^1.17.1"
   },
   "devDependencies": {
     "electron": "^42.0.0",
     "electron-builder": "^26.0.12",
-    "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^6.5.438",
     "png-to-ico": "^3.0.1"
   },

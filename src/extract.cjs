@@ -53,7 +53,9 @@ function extract(html, url, seed = url) {
   let base = url;
   try { base = normalize($('base[href]').first().attr('href'), url); } catch {}
   const links = [], seen = new Set();
-  $('a[href]').each((_, el) => {
+  const navigation=$('.wiki-toc a[href], .wiki-sidebar a[href], .guide-toc a[href], .guide-navigation a[href], .guide-menu a[href], #guide-menu a[href], .table-of-contents a[href], nav[aria-label*="contents" i] a[href], nav[aria-label*="poradnik" i] a[href]').toArray();
+  const navigationUrls=new Set();for(const el of navigation){try{const href=$(el).attr('href');if(!href.startsWith('#')){const target=normalize(href,base);if(belongs(seed,target))navigationUrls.add(target);}}catch{}}
+  $([...navigation,...$('a[href]').toArray()]).each((_, el) => {
     try {
       const href = $(el).attr('href');
       if (href.startsWith('#')) return;
@@ -69,7 +71,7 @@ function extract(html, url, seed = url) {
   const isScopeRoot=scope&&new URL(url).pathname.replace(/\/$/,'')===scope.replace(/\/$/,'');
   const indexFromLinks=()=>{
     const list=$('<ul>');for(const link of links)if(link.url!==url)list.append($('<li>').append($('<a>').attr('href',link.url).text(link.title)));
-    return {title,content:$.html(list),links,url,site:site.name,words:list.text().split(/\s+/).length,quality:[],kind:'index',images:0,tables:0,extractorVersion:EXTRACTOR_VERSION};
+    return {title,content:$.html(list),links,navigation:[...navigationUrls],url,site:site.name,words:list.text().split(/\s+/).length,quality:[],kind:'index',images:0,tables:0,extractorVersion:EXTRACTOR_VERSION};
   };
   if(site.collect){
     const sections=$(site.selector).filter((_,el)=>$(el).text().trim().length>20);
@@ -203,6 +205,6 @@ function extract(html, url, seed = url) {
   }
   const quality = [...mediaIssues];
   if (text.split(/\s+/).length < 60 && !isIndex) quality.push('Bardzo krótka treść — sprawdź, czy strona zawiera pełny poradnik.');
-  return { title, content, links, url, site:site.name, words:text.split(/\s+/).length, quality, selector:selectorUsed,kind:isIndex?'index':'article',images:q('img').length,tables:q('table').length,extractorVersion:EXTRACTOR_VERSION };
+  return { title, content, links,navigation:[...navigationUrls], url, site:site.name, words:text.split(/\s+/).length, quality, selector:selectorUsed,kind:isIndex?'index':'article',images:q('img').length,tables:q('table').length,extractorVersion:EXTRACTOR_VERSION };
 }
 module.exports = { extract, imageSource,assertAccessible,EXTRACTOR_VERSION };

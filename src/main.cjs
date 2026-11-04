@@ -61,7 +61,7 @@ async function main({engineOptions={},saveDialog=(...args)=>dialog.showSaveDialo
       if(engine.signal.aborted)throw new Error('Anulowano.');
       win.webContents.send('progress',{phase:'print',message:'Tworzenie pliku PDF…'});
       const layout={images:!!args.images,warnings:engine.warnings,title,fontSize:args.fontSize,paper:args.paper,landscape:!!args.landscape};
-      const rendered=await printBook(bookHtml(chapters,layout),result.filePath);
+      const rendered=await printBook(bookHtml(chapters,layout),result.filePath,{signal:engine.signal,progress:p=>{if(!win.isDestroyed())win.webContents.send('progress',p);}});
       engine.warnings.push(...rendered.warnings);
       for(const warning of rendered.warnings){const asset=engine.media.assets.find(a=>a.url===warning.url&&a.status==='embedded');if(asset){asset.status='failed';asset.error=warning.error;engine.media.embedded--;engine.media.failed++;}}
       const contentPages=[...engine.pages].filter(([,p])=>p.kind!=='index');

@@ -19,6 +19,7 @@ jobs:
       - run: npm test
       - run: npm run test:ui
       - run: npm run test:media
+      - run: npm run test:performance
       - run: npm run smoke
       - run: npm run icons
       - run: npm run build -- --publish never

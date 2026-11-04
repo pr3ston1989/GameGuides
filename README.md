@@ -6,7 +6,15 @@ Aplikacja Windows do zapisywania poradników do gier w estetycznym PDF. Wklej li
 
 ## Pobieranie
 
-Lokalny instalator **GameGuides-1.2.1-Setup.exe** i wersja **GameGuides-1.2.1-Portable.exe** znajdują się po zbudowaniu w `dist/`. Opublikowane wersje są dostępne w [wydaniach projektu](https://github.com/pr3ston1989/GameGuides/releases/latest). Windows 10/11 x64; Node.js nie jest wymagany. Instalator pozwala wybrać katalog i tworzy skróty. Wydanie nie ma komercyjnego podpisu cyfrowego.
+Lokalny instalator **GameGuides-1.2.2-Setup.exe** i wersja **GameGuides-1.2.2-Portable.exe** znajdują się po zbudowaniu w `dist/`. Opublikowane wersje są dostępne w [wydaniach projektu](https://github.com/pr3ston1989/GameGuides/releases/latest). Windows 10/11 x64; Node.js nie jest wymagany. Instalator pozwala wybrać katalog i tworzy skróty. Wydanie nie ma komercyjnego podpisu cyfrowego.
+
+## Co nowego w 1.2.2
+
+- Duże PDF są drukowane w mniejszych częściach i łączone w jeden dokument z linkami offline i ciągłą numeracją. Ogranicza to obciążenie pamięci podczas drukowania.
+- Ilustracje fotograficzne są przygotowywane jako skompresowane JPEG; zwykłe obrazy większe niż 2000 pikseli są zmniejszane do wydruku. Mapy oznaczone przez adapter zachowują oryginalny plik.
+- Pobieranie do trzech stron HTTP i czterech ilustracji równolegle, obsługa gzip/Brotli oraz krótszy minimalny odstęp (250 ms zamiast 1200 ms). Jawne crawl-delay serwisu pozostaje respektowane; odczyt w oknie przeglądarki jest kolejny.
+- Automatyczna kolejność według dostępnej nawigacji źródła i hierarchii indeksów działów, niezależna od czasu odpowiedzi stron. Gdy serwis nie udostępnia kompletnego spisu, pozostałe strony zachowują kolejność odkrywania.
+- Postęp drukowania części PDF oraz obsługa przerwania, limitu czasu i awarii procesu drukującego.
 
 ## Co nowego w 1.2.1
 
@@ -73,6 +81,8 @@ Node.js 24 LTS, Windows x64:
 npm ci
 npm test
 npm run test:ui
+npm run test:media
+npm run test:performance
 npm run smoke
 npm start
 npm run build -- --publish never
